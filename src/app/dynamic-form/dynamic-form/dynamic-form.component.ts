@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { QuestionBase } from '../ts-questions/question-base';
-import { FormProcessor } from '../ts-form-processor/form-processor';
+import { QuestionBase } from '../../dynamic-form-ts/questions/question-base';
+import { FormProcessor } from '../../dynamic-form-ts/form-processor/form-processor';
 import { toFormGroup } from './form-group-questions-convertions';
 
 @Component({

@@ -1,6 +1,6 @@
-import { QuestionBase } from '../ts-questions/question-base';
-import { DropdownQuestion } from '../ts-questions/question-dropdown';
-import { TextboxQuestion } from '../ts-questions/question-textbox';
+import { QuestionBase } from '../../dynamic-form-ts/questions/question-base';
+import { DropdownQuestion } from '../../dynamic-form-ts/questions/question-dropdown';
+import { TextboxQuestion } from '../../dynamic-form-ts/questions/question-textbox';
 
 const generaliIdentificationDataQuestions: QuestionBase<any>[] = [
   new DropdownQuestion({

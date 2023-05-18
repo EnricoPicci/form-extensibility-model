@@ -1,5 +1,5 @@
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { QuestionBase } from '../ts-questions/question-base';
+import { QuestionBase } from '../../dynamic-form-ts/questions/question-base';
 
 export function fromFormGroup(form: FormGroup) {
   return form.value;

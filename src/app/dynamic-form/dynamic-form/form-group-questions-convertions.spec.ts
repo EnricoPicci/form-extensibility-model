@@ -1,4 +1,4 @@
-import { TextboxQuestion } from '../ts-questions/question-textbox';
+import { TextboxQuestion } from '../../dynamic-form-ts/questions/question-textbox';
 import { toFormGroup } from './form-group-questions-convertions';
 
 describe(`fromFormGroup`, () => {
