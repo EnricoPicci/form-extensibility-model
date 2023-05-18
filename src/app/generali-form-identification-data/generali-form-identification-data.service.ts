@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { FormProcessor } from '../dynamic-form/form-processor';
+import { FormProcessor } from '../ts-form-processor/form-processor';
 import { ProductFormIdentificationDataService } from '../product-form-identification-data/product-form-identification-data.service';
 
 @Injectable({
