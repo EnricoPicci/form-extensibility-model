@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FormIdentificationDataComponent } from './form-identification-data.component';
+import { ProductFormIdentificationDataComponent } from './form-identification-data.component';
 
-describe('FormComponent', () => {
-  let component: FormIdentificationDataComponent;
-  let fixture: ComponentFixture<FormIdentificationDataComponent>;
+describe('ProductFormComponent', () => {
+  let component: ProductFormIdentificationDataComponent;
+  let fixture: ComponentFixture<ProductFormIdentificationDataComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [FormIdentificationDataComponent],
+      declarations: [ProductFormIdentificationDataComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(FormIdentificationDataComponent);
+    fixture = TestBed.createComponent(ProductFormIdentificationDataComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

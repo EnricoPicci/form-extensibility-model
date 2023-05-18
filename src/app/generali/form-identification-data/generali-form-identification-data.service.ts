@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormProcessor } from '../../dynamic-form-ts/form-processor/form-processor';
-import { FormIdentificationDataService } from '../../product/form-identification-data/form-identification-data.service';
+import { ProductFormIdentificationDataService } from '../../product/form-identification-data/form-identification-data.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GeneraliFormIdentificationDataService implements FormProcessor {
-  constructor(private FormProcessor: FormIdentificationDataService) {}
+  constructor(private FormProcessor: ProductFormIdentificationDataService) {}
 
   processForm(form: FormGroup) {
     return `Processing Generali Identification Data Form

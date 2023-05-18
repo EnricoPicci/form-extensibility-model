@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormIdentificationDataService } from './form-identification-data.service';
+import { ProductFormIdentificationDataService } from './form-identification-data.service';
 
 import { QuestionBase } from '../../dynamic-form-ts/questions/question-base';
 import { getProductIdentificationDataQuestions } from '../../product-ts/form-identification-data/form-identification-data.model';
@@ -9,10 +9,10 @@ import { getProductIdentificationDataQuestions } from '../../product-ts/form-ide
   templateUrl: './form-identification-data.component.html',
   styleUrls: ['./form-identification-data.component.css'],
 })
-export class FormIdentificationDataComponent implements OnInit {
+export class ProductFormIdentificationDataComponent implements OnInit {
   questions!: QuestionBase<any>[];
 
-  constructor(public formProcessor: FormIdentificationDataService) {}
+  constructor(public formProcessor: ProductFormIdentificationDataService) {}
 
   ngOnInit(): void {
     this.questions = getProductIdentificationDataQuestions();

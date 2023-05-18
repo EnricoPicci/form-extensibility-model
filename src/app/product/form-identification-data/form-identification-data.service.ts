@@ -8,7 +8,7 @@ import { fromFormGroup } from '../../dynamic-form/dynamic-form/form-group-questi
 @Injectable({
   providedIn: 'root',
 })
-export class FormIdentificationDataService implements FormProcessor {
+export class ProductFormIdentificationDataService implements FormProcessor {
   constructor() {}
 
   processForm(form: FormGroup) {

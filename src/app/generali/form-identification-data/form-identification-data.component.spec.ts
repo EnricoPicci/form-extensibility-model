@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GeneraliFormIdentificationDataComponent } from './generali-form-identification-data.component';
+import { GeneraliFormIdentificationDataComponent } from './form-identification-data.component';
 
 describe('GeneraliFormIdentificationDataComponent', () => {
   let component: GeneraliFormIdentificationDataComponent;
@@ -8,9 +8,8 @@ describe('GeneraliFormIdentificationDataComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GeneraliFormIdentificationDataComponent ]
-    })
-    .compileComponents();
+      declarations: [GeneraliFormIdentificationDataComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(GeneraliFormIdentificationDataComponent);
     component = fixture.componentInstance;
