@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { QuestionBase } from '../question-base';
-import { QuestionControlService } from '../question-control.service';
+import { QuestionBase } from '../questions/question-base';
+import { QuestionControlService } from '../questions/question-control.service';
+import { FormProcessor } from './form-processor';
 
 @Component({
   selector: 'app-dynamic-form',
@@ -10,16 +11,21 @@ import { QuestionControlService } from '../question-control.service';
 })
 export class DynamicFormComponent implements OnInit {
   @Input() questions: QuestionBase<any>[] | null = [];
+  @Input() formProcessor!: FormProcessor;
+
   form!: FormGroup;
   payLoad = '';
 
   constructor(private qcs: QuestionControlService) {}
 
   ngOnInit() {
+    if (!this.formProcessor) {
+      throw new Error('formProcessor is required');
+    }
     this.form = this.qcs.toFormGroup(this.questions as QuestionBase<any>[]);
   }
 
   onSubmit() {
-    this.payLoad = JSON.stringify(this.form.getRawValue());
+    this.payLoad = this.formProcessor.processForm(this.form);
   }
 }
