@@ -14,6 +14,7 @@ import { getProductIdentificationDataActions } from '../../ts-product/form-ident
 export class ProductFormIdentificationDataComponent implements OnInit {
   questions!: QuestionBase<any>[];
   actions!: Action[];
+  title = 'Identification Data Form';
 
   constructor() {}
 

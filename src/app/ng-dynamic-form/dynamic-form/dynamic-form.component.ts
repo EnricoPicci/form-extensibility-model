@@ -15,6 +15,7 @@ import { StateService } from '../../ts-state/state-service';
 export class DynamicFormComponent implements OnInit {
   @Input() questions: QuestionBase<any>[] | null = [];
   @Input() actions!: Action[];
+  @Input() title!: string;
 
   form!: FormGroup;
   messages: string[] = [];

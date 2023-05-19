@@ -14,6 +14,7 @@ import { getGeneraliAddressQuestions } from 'src/app/ts-generali/form-address/fo
 export class GeneraliFormAddressComponent {
   questions!: QuestionBase<any>[];
   actions!: Action[];
+  title = 'Generali Address Form';
 
   constructor() {}
 

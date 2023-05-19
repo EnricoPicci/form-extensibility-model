@@ -14,6 +14,7 @@ import { getGeneraliIdentificationDataActions } from '../../ts-generali/form-ide
 export class GeneraliFormIdentificationDataComponent {
   questions!: QuestionBase<any>[];
   actions!: Action[];
+  title = 'Generali Identification Data Form';
 
   constructor() {}
 

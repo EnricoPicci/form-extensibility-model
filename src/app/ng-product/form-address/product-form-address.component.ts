@@ -14,6 +14,7 @@ import { getProductAddressQuestions } from 'src/app/ts-product/form-address/form
 export class ProductFormAddressComponent {
   questions!: QuestionBase<any>[];
   actions!: Action[];
+  title = 'Product Address Form';
 
   constructor() {}
 
