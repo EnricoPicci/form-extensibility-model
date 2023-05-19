@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { QuestionBase } from '../../dynamic-form-ts/questions/question-base';
+
+import { QuestionBase } from '../../ts-dynamic-form/questions/question-base';
 
 @Component({
   selector: 'app-question',

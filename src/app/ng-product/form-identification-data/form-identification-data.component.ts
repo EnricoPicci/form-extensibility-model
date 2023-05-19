@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+
 import { ProductFormIdentificationDataService } from './form-identification-data.service';
 
-import { QuestionBase } from '../../dynamic-form-ts/questions/question-base';
-import { getProductIdentificationDataQuestions } from '../../product-ts/form-identification-data/form-identification-data.model';
+import { QuestionBase } from '../../ts-dynamic-form/questions/question-base';
+import { getProductIdentificationDataQuestions } from '../../ts-product/form-identification-data/form-identification-data.model';
 
 @Component({
   selector: 'app-form-identification-data',

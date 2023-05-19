@@ -3,10 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { DynamicFormQuestionComponent } from './dynamic-form/dynamic-form-question/dynamic-form-question.component';
-import { DynamicFormComponent } from './dynamic-form/dynamic-form/dynamic-form.component';
-import { ProductFormIdentificationDataComponent } from './product/form-identification-data/form-identification-data.component';
-import { GeneraliFormIdentificationDataComponent } from './generali/form-identification-data/form-identification-data.component';
+import { DynamicFormQuestionComponent } from './ng-dynamic-form/dynamic-form-question/dynamic-form-question.component';
+import { DynamicFormComponent } from './ng-dynamic-form/dynamic-form/dynamic-form.component';
+import { ProductFormIdentificationDataComponent } from './ng-product/form-identification-data/form-identification-data.component';
+import { GeneraliFormIdentificationDataComponent } from './ng-generali/form-identification-data/form-identification-data.component';
 
 @NgModule({
   declarations: [

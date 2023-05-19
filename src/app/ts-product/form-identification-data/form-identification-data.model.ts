@@ -1,6 +1,6 @@
-import { QuestionBase } from '../../dynamic-form-ts/questions/question-base';
-import { DropdownQuestion } from '../../dynamic-form-ts/questions/question-dropdown';
-import { TextboxQuestion } from '../../dynamic-form-ts/questions/question-textbox';
+import { QuestionBase } from '../../ts-dynamic-form/questions/question-base';
+import { DropdownQuestion } from '../../ts-dynamic-form/questions/question-dropdown';
+import { TextboxQuestion } from '../../ts-dynamic-form/questions/question-textbox';
 
 export function getProductIdentificationDataQuestions() {
   const productIdentificationDataQuestions: QuestionBase<any>[] = [

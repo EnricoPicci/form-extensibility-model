@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { getProductIdentificationDataQuestions } from '../../product-ts/form-identification-data/form-identification-data.model';
-import { QuestionBase } from '../../dynamic-form-ts/questions/question-base';
+import { getProductIdentificationDataQuestions } from '../../ts-product/form-identification-data/form-identification-data.model';
+import { QuestionBase } from '../../ts-dynamic-form/questions/question-base';
 import { GeneraliFormIdentificationDataService } from './generali-form-identification-data.service';
 import { getGeneraliIdentificationDataQuestions } from './form-identification-data.model';
 

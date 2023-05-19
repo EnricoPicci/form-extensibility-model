@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
-import { FormProcessor } from '../../dynamic-form-ts/form-processor/form-processor';
-import { processIdentificationData } from '../../product-ts/form-identification-data/form-identification-data.processor';
-import { fromFormGroup } from '../../dynamic-form/dynamic-form/form-group-questions-convertions';
+import { fromFormGroup } from '../../ng-dynamic-form/dynamic-form/form-group-questions-convertions';
+
+import { FormProcessor } from '../../ng-dynamic-form/dynamic-form/form-processor';
+import { processIdentificationData } from '../../ts-product/form-identification-data/form-identification-data.processor';
 
 @Injectable({
   providedIn: 'root',
