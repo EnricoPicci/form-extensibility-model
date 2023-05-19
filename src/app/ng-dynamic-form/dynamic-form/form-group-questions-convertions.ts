@@ -2,10 +2,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { QuestionBase } from '../../ts-dynamic-form/questions/question-base';
 
-export function fromFormGroup(form: FormGroup) {
-  return form.value;
-}
-
 export function toFormGroup(questions: QuestionBase<any>[]) {
   const group: any = {};
 

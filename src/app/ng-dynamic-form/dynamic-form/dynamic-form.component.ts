@@ -4,7 +4,7 @@ import { FormGroup } from '@angular/forms';
 import { toFormGroup } from './form-group-questions-convertions';
 
 import { QuestionBase } from '../../ts-dynamic-form/questions/question-base';
-import { FormProcessor } from './form-processor';
+import { Action } from 'src/app/ts-dynamic-form/actions/action';
 @Component({
   selector: 'app-dynamic-form',
   templateUrl: './dynamic-form.component.html',
@@ -12,7 +12,7 @@ import { FormProcessor } from './form-processor';
 })
 export class DynamicFormComponent implements OnInit {
   @Input() questions: QuestionBase<any>[] | null = [];
-  @Input() formProcessor!: FormProcessor;
+  @Input() actions!: Action[];
 
   form!: FormGroup;
   payLoad = '';
@@ -20,13 +20,6 @@ export class DynamicFormComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    if (!this.formProcessor) {
-      throw new Error('formProcessor is required');
-    }
     this.form = toFormGroup(this.questions as QuestionBase<any>[]);
-  }
-
-  onSubmit() {
-    this.payLoad = this.formProcessor.processForm(this.form);
   }
 }

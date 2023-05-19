@@ -1,11 +1,17 @@
 <div>
-  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+  <form [formGroup]="form">
     <div *ngFor="let question of questions" class="form-row">
       <app-question [question]="question" [form]="form"></app-question>
     </div>
 
     <div class="form-row">
-      <button type="submit" [disabled]="!form.valid">Save</button>
+      <button
+        *ngFor="let action of actions"
+        [disabled]="!form.valid"
+        (click)="action.function(form.value)"
+      >
+        {{ action.name }}
+      </button>
     </div>
   </form>
 

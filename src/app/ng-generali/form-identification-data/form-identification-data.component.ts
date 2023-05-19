@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { getProductIdentificationDataQuestions } from '../../ts-product/form-identification-data/form-identification-data.model';
+
 import { QuestionBase } from '../../ts-dynamic-form/questions/question-base';
-import { GeneraliFormIdentificationDataService } from './generali-form-identification-data.service';
-import { getGeneraliIdentificationDataQuestions } from './form-identification-data.model';
+import { Action } from '../../ts-dynamic-form/actions/action';
+
+import { getGeneraliIdentificationDataQuestions } from '../../ts-generali/form-identification-data/form-identification-data.model';
+import { getGeneraliIdentificationDataActions } from '../../ts-generali/form-identification-data/form-identification-data.actions';
 
 @Component({
   selector: 'app-generali-form-identification-data',
@@ -11,13 +13,12 @@ import { getGeneraliIdentificationDataQuestions } from './form-identification-da
 })
 export class GeneraliFormIdentificationDataComponent {
   questions!: QuestionBase<any>[];
+  actions!: Action[];
 
-  constructor(public formProcessor: GeneraliFormIdentificationDataService) {}
+  constructor() {}
 
   ngOnInit(): void {
-    this.questions = [
-      ...getProductIdentificationDataQuestions(),
-      ...getGeneraliIdentificationDataQuestions(),
-    ];
+    this.questions = getGeneraliIdentificationDataQuestions();
+    this.actions = getGeneraliIdentificationDataActions();
   }
 }
