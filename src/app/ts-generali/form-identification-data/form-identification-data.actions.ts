@@ -1,15 +1,19 @@
+import { StateService } from 'src/app/ts-state/state-service';
+import { Action } from '../../ts-dynamic-form/actions/action';
+
 import { productSave } from '../../ts-product/form-identification-data/form-identification-data.actions';
 
-export function generaliSave(formGroupValue: any) {
+export function generaliSave(formGroupValue: any, state: StateService) {
   // first run the product save logic
   console.log('first run the product save logic');
-  const productSaveLogicRes = productSave(formGroupValue);
+  productSave(formGroupValue, state);
   // then run the Generali save logic
   const generaliSaveLogicRes = `Veneto? ${formGroupValue.veneto}`;
-  return `Result of Product logic ${productSaveLogicRes} --- Result of Generali logic ${generaliSaveLogicRes}`;
+  // then set the new message via the state service
+  state.setMessage(`Result of Generali logic ${generaliSaveLogicRes}`);
 }
 
-export function getGeneraliIdentificationDataActions() {
+export function getGeneraliIdentificationDataActions(): Action[] {
   return [
     {
       name: 'Save',
