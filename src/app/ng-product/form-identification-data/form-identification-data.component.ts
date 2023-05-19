@@ -6,7 +6,7 @@ import { Action } from '../../ts-dynamic-form/actions/action';
 import { getProductIdentificationDataActions } from 'src/app/ts-product/form-identification-data/form-identification-data.actions';
 
 @Component({
-  selector: 'app-form-identification-data',
+  selector: 'app-product-form-identification-data',
   templateUrl: './form-identification-data.component.html',
   styleUrls: ['./form-identification-data.component.css'],
 })

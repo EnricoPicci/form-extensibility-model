@@ -7,6 +7,8 @@ import { DynamicFormQuestionComponent } from './ng-dynamic-form/dynamic-form-que
 import { DynamicFormComponent } from './ng-dynamic-form/dynamic-form/dynamic-form.component';
 import { ProductFormIdentificationDataComponent } from './ng-product/form-identification-data/form-identification-data.component';
 import { GeneraliFormIdentificationDataComponent } from './ng-generali/form-identification-data/form-identification-data.component';
+import { ProductFormAddressComponent } from './ng-product/form-address/form-address.component';
+import { GeneraliFormAddressComponent } from './ng-generali/form-address/form-address.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import { GeneraliFormIdentificationDataComponent } from './ng-generali/form-iden
     DynamicFormComponent,
     ProductFormIdentificationDataComponent,
     GeneraliFormIdentificationDataComponent,
+    ProductFormAddressComponent,
+    GeneraliFormAddressComponent,
   ],
   imports: [BrowserModule, ReactiveFormsModule],
   providers: [],

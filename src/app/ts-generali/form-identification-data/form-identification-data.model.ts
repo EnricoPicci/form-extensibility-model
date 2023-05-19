@@ -1,7 +1,7 @@
 import { QuestionBase } from '../../ts-dynamic-form/questions/question-base';
 import { DropdownQuestion } from '../../ts-dynamic-form/questions/question-dropdown';
 
-import { getProductIdentificationDataQuestions } from '../..//ts-product/form-identification-data/form-identification-data.model';
+import { getProductIdentificationDataQuestions } from '../../ts-product/form-identification-data/form-identification-data.model';
 
 export function getGeneraliIdentificationDataQuestions() {
   const generaliIdentificationDataQuestions: QuestionBase<any>[] = [
