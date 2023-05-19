@@ -1,4 +1,4 @@
-import { Observable, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 
 export class StateService {
   private _message$ = new Subject<string>();

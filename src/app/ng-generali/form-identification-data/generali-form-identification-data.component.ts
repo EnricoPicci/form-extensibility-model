@@ -8,8 +8,8 @@ import { getGeneraliIdentificationDataActions } from '../../ts-generali/form-ide
 
 @Component({
   selector: 'app-generali-form-identification-data',
-  templateUrl: './form-identification-data.component.html',
-  styleUrls: ['./form-identification-data.component.css'],
+  templateUrl: './generali-form-identification-data.component.html',
+  styleUrls: ['./generali-form-identification-data.component.css'],
 })
 export class GeneraliFormIdentificationDataComponent {
   questions!: QuestionBase<any>[];

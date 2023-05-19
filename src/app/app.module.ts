@@ -5,10 +5,10 @@ import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DynamicFormQuestionComponent } from './ng-dynamic-form/dynamic-form-question/dynamic-form-question.component';
 import { DynamicFormComponent } from './ng-dynamic-form/dynamic-form/dynamic-form.component';
-import { ProductFormIdentificationDataComponent } from './ng-product/form-identification-data/form-identification-data.component';
-import { GeneraliFormIdentificationDataComponent } from './ng-generali/form-identification-data/form-identification-data.component';
-import { ProductFormAddressComponent } from './ng-product/form-address/form-address.component';
-import { GeneraliFormAddressComponent } from './ng-generali/form-address/form-address.component';
+import { ProductFormIdentificationDataComponent } from './ng-product/form-identification-data/product-form-identification-data.component';
+import { GeneraliFormIdentificationDataComponent } from './ng-generali/form-identification-data/generali-form-identification-data.component';
+import { ProductFormAddressComponent } from './ng-product/form-address/product-form-address.component';
+import { GeneraliFormAddressComponent } from './ng-generali/form-address/generali-form-address.component';
 
 @NgModule({
   declarations: [

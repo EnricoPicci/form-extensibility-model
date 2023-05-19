@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProductFormAddressComponent } from './form-address.component';
+import { GeneraliFormAddressComponent } from './generali-form-address.component';
 
 describe('FormAddressComponent', () => {
-  let component: ProductFormAddressComponent;
-  let fixture: ComponentFixture<ProductFormAddressComponent>;
+  let component: GeneraliFormAddressComponent;
+  let fixture: ComponentFixture<GeneraliFormAddressComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ProductFormAddressComponent],
+      declarations: [GeneraliFormAddressComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ProductFormAddressComponent);
+    fixture = TestBed.createComponent(GeneraliFormAddressComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

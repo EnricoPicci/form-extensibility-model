@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProductFormIdentificationDataComponent } from './form-identification-data.component';
+import { ProductFormIdentificationDataComponent } from './product-form-identification-data.component';
 
 describe('ProductFormComponent', () => {
   let component: ProductFormIdentificationDataComponent;

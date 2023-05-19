@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GeneraliFormIdentificationDataComponent } from './form-identification-data.component';
+import { GeneraliFormIdentificationDataComponent } from './generali-form-identification-data.component';
 
 describe('GeneraliFormIdentificationDataComponent', () => {
   let component: GeneraliFormIdentificationDataComponent;

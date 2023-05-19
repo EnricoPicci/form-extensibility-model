@@ -8,8 +8,8 @@ import { getProductAddressQuestions } from 'src/app/ts-product/form-address/form
 
 @Component({
   selector: 'app-product-form-address',
-  templateUrl: './form-address.component.html',
-  styleUrls: ['./form-address.component.css'],
+  templateUrl: './product-form-address.component.html',
+  styleUrls: ['./product-form-address.component.css'],
 })
 export class ProductFormAddressComponent {
   questions!: QuestionBase<any>[];

@@ -8,8 +8,8 @@ import { getGeneraliAddressQuestions } from 'src/app/ts-generali/form-address/fo
 
 @Component({
   selector: 'app-generali-form-address',
-  templateUrl: './form-address.component.html',
-  styleUrls: ['./form-address.component.css'],
+  templateUrl: './generali-form-address.component.html',
+  styleUrls: ['./generali-form-address.component.css'],
 })
 export class GeneraliFormAddressComponent {
   questions!: QuestionBase<any>[];
