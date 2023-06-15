@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 
 import { Action } from 'src/app/ts-dynamic-form/actions/action';
-import { QuestionBase } from 'src/app/ts-dynamic-form/questions/question-base';
-
-import { getGeneraliAddressActions } from 'src/app/ts-generali/form-address/form-address.actions';
-import { getGeneraliAddressQuestions } from 'src/app/ts-generali/form-address/form-address.model';
+import { DynamicForm } from 'src/app/ts-dynamic-form/form';
+import { getGeneraliAddressForm } from 'src/app/ts-generali/form-address/form-address.form';
 
 @Component({
   selector: 'app-generali-form-address',
@@ -12,14 +10,12 @@ import { getGeneraliAddressQuestions } from 'src/app/ts-generali/form-address/fo
   styleUrls: ['./generali-form-address.component.css'],
 })
 export class GeneraliFormAddressComponent {
-  questions!: QuestionBase<any>[];
-  actions!: Action[];
+  form!: DynamicForm;
   title = 'Generali Address Form';
 
   constructor() {}
 
   ngOnInit(): void {
-    this.questions = getGeneraliAddressQuestions();
-    this.actions = getGeneraliAddressActions();
+    this.form = getGeneraliAddressForm();
   }
 }

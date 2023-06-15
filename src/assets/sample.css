@@ -1,7 +1,13 @@
-.errorMessage{
-    color:red;
-  }
-  
-.form-row{
-    margin-top: 10px;
-  }
+.errorMessage {
+  color: red;
+}
+
+.form-row {
+  margin-top: 10px;
+}
+
+.section {
+  margin-top: 10px;
+  border: midnightblue 1px solid;
+  padding: 10px;
+}

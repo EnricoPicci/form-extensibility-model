@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { QuestionBase } from '../../ts-dynamic-form/questions/question-base';
-import { Action } from '../../ts-dynamic-form/actions/action';
-
-import { getProductIdentificationDataQuestions } from '../../ts-product/form-identification-data/form-identification-data.model';
-import { getProductIdentificationDataActions } from '../../ts-product/form-identification-data/form-identification-data.actions';
+import { DynamicForm } from 'src/app/ts-dynamic-form/form';
+import { getProductIdentificationDataForm } from 'src/app/ts-product/form-identification-data/form-identification-data.form';
 
 @Component({
   selector: 'app-product-form-identification-data',
@@ -12,14 +9,12 @@ import { getProductIdentificationDataActions } from '../../ts-product/form-ident
   styleUrls: ['./product-form-identification-data.component.css'],
 })
 export class ProductFormIdentificationDataComponent implements OnInit {
-  questions!: QuestionBase<any>[];
-  actions!: Action[];
+  form!: DynamicForm;
   title = 'Identification Data Form';
 
   constructor() {}
 
   ngOnInit(): void {
-    this.questions = getProductIdentificationDataQuestions();
-    this.actions = getProductIdentificationDataActions();
+    this.form = getProductIdentificationDataForm();
   }
 }

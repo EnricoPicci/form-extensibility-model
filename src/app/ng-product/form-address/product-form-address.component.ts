@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
 
-import { Action } from 'src/app/ts-dynamic-form/actions/action';
-import { QuestionBase } from 'src/app/ts-dynamic-form/questions/question-base';
-
-import { getProductAddressActions } from 'src/app/ts-product/form-address/form-address.actions';
-import { getProductAddressQuestions } from 'src/app/ts-product/form-address/form-address.model';
+import { DynamicForm } from 'src/app/ts-dynamic-form/form';
+import { getProductAddressForm } from 'src/app/ts-product/form-address/form-address.form';
 
 @Component({
   selector: 'app-product-form-address',
@@ -12,14 +9,12 @@ import { getProductAddressQuestions } from 'src/app/ts-product/form-address/form
   styleUrls: ['./product-form-address.component.css'],
 })
 export class ProductFormAddressComponent {
-  questions!: QuestionBase<any>[];
-  actions!: Action[];
+  form!: DynamicForm;
   title = 'Product Address Form';
 
   constructor() {}
 
   ngOnInit(): void {
-    this.questions = getProductAddressQuestions();
-    this.actions = getProductAddressActions();
+    this.form = getProductAddressForm();
   }
 }

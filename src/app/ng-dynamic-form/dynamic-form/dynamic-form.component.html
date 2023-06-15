@@ -1,18 +1,28 @@
 <h2>{{ title }}</h2>
 <div>
   <form [formGroup]="form">
-    <div *ngFor="let question of questions" class="form-row">
-      <app-question [question]="question" [form]="form"></app-question>
-    </div>
+    <div *ngFor="let element of elements" class="form-row">
+      <div [ngSwitch]="element.componentType">
+        <app-dynamic-form-section
+          *ngSwitchCase="'Section'"
+          [section]="getSection(element)"
+          [form]="form"
+        ></app-dynamic-form-section>
 
-    <div class="form-row">
-      <button
-        *ngFor="let action of actions"
-        [disabled]="!form.valid"
-        (click)="action.function(form.value, stateService)"
-      >
-        {{ action.name }}
-      </button>
+        <app-question
+          *ngSwitchCase="'Question'"
+          [question]="getQuestion(element)"
+          [form]="form"
+        ></app-question>
+
+        <button
+          *ngSwitchCase="'Action'"
+          [disabled]="!form.valid"
+          (click)="getAction(element).function(form.value, stateService)"
+        >
+          {{ getAction(element).name }}
+        </button>
+      </div>
     </div>
   </form>
 

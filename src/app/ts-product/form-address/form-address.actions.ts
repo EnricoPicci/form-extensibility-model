@@ -24,16 +24,3 @@ export function productValidateAddress(
     `Address validated with Product logic. Is valid? ${message}`
   );
 }
-
-export function getProductAddressActions() {
-  return [
-    {
-      name: 'Save',
-      function: productSaveAddress,
-    },
-    {
-      name: 'Validate',
-      function: productValidateAddress,
-    },
-  ];
-}

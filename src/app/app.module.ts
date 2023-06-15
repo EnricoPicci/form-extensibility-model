@@ -9,6 +9,7 @@ import { ProductFormIdentificationDataComponent } from './ng-product/form-identi
 import { GeneraliFormIdentificationDataComponent } from './ng-generali/form-identification-data/generali-form-identification-data.component';
 import { ProductFormAddressComponent } from './ng-product/form-address/product-form-address.component';
 import { GeneraliFormAddressComponent } from './ng-generali/form-address/generali-form-address.component';
+import { DynamicFormSectionComponent } from './ng-dynamic-form/dynamic-form-section/dynamic-form-section.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { GeneraliFormAddressComponent } from './ng-generali/form-address/general
     GeneraliFormIdentificationDataComponent,
     ProductFormAddressComponent,
     GeneraliFormAddressComponent,
+    DynamicFormSectionComponent,
   ],
   imports: [BrowserModule, ReactiveFormsModule],
   providers: [],

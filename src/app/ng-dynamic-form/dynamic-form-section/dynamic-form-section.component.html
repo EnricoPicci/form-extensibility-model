@@ -1,0 +1,20 @@
+<div [formGroup]="form" class="section">
+  <span>Section {{ section.name }}</span>
+  <div *ngFor="let element of elements" class="form-row">
+    <div [ngSwitch]="element.componentType">
+      <app-question
+        *ngSwitchCase="'Question'"
+        [question]="getQuestion(element)"
+        [form]="form"
+      ></app-question>
+
+      <button
+        *ngSwitchCase="'Action'"
+        [disabled]="!form.valid"
+        (click)="getAction(element).function(form.value, stateService)"
+      >
+        {{ getAction(element).name }}
+      </button>
+    </div>
+  </div>
+</div>
