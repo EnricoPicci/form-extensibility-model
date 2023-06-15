@@ -1,5 +1,16 @@
 import { DynamicFormElement, DynamicFormElementType } from '../form';
 
+export type QuestionBaseOptions<T> = {
+  value?: T;
+  key: string;
+  label?: string;
+  required?: boolean;
+  order?: number;
+  controlType?: string;
+  type?: string;
+  options?: { key: string; value: T }[];
+};
+
 export abstract class QuestionBase<T> extends DynamicFormElement {
   value: T | undefined;
   key: string;
@@ -11,18 +22,7 @@ export abstract class QuestionBase<T> extends DynamicFormElement {
 
   override componentType: DynamicFormElementType = 'Question';
 
-  constructor(
-    options: {
-      value?: T;
-      key: string;
-      label?: string;
-      required?: boolean;
-      order?: number;
-      controlType?: string;
-      type?: string;
-      options?: { key: string; value: T }[];
-    } = { key: '' }
-  ) {
+  constructor(options: QuestionBaseOptions<T> = { key: '' }) {
     super();
     this.value = options.value;
     this.key = options.key || '';

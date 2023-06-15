@@ -9,7 +9,7 @@ import { productSave } from './form-identification-data.actions';
 export function getProductIdentificationDataForm() {
   const productAddressForm = new DynamicForm({
     title: 'Product Identification Data',
-    components: [
+    elements: [
       new Section({
         name: 'Basic Information',
         order: 1,

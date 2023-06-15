@@ -11,7 +11,7 @@ import {
 export function getProductAddressForm() {
   const productAddressForm = new DynamicForm({
     title: 'Product Address',
-    components: [
+    elements: [
       new Section({
         name: 'Basic Information',
         order: 1,

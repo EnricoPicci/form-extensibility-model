@@ -13,9 +13,9 @@ export class DynamicForm {
   title: string;
   elements: DynamicFormElement[];
 
-  constructor(options: { title: string; components: DynamicFormElement[] }) {
+  constructor(options: { title: string; elements?: DynamicFormElement[] }) {
     this.title = options.title || '';
-    this.elements = options.components || [];
+    this.elements = options.elements || [];
   }
 
   getAllQuestions() {
@@ -63,7 +63,7 @@ export class DynamicForm {
     sections.forEach((section) => {
       const index = section.elements.indexOf(question);
       if (index > -1) {
-        this.elements.splice(index, 1);
+        this.elements?.splice(index, 1);
         return;
       }
     });
@@ -108,7 +108,7 @@ export class DynamicForm {
     sections.forEach((section) => {
       const index = section.elements.indexOf(action);
       if (index > -1) {
-        this.elements.splice(index, 1);
+        this.elements?.splice(index, 1);
         return;
       }
     });
