@@ -34,13 +34,13 @@ export class DynamicFormComponent implements OnInit {
     });
   }
 
-  getSection(element: DynamicFormElement) {
+  asSection(element: DynamicFormElement) {
     return element as Section;
   }
-  getQuestion(element: DynamicFormElement) {
+  asQuestion(element: DynamicFormElement) {
     return element as QuestionBase<any>;
   }
-  getAction(element: DynamicFormElement) {
+  asAction(element: DynamicFormElement) {
     return element as Action;
   }
 }

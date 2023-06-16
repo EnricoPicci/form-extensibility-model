@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { DynamicForm } from 'src/app/ts-dynamic-form/form';
-import { getDynamicDropdownForm } from 'src/app/ts-product/form-dynamic-dropdown/form-dynamic-dropdown.form';
+import { getDynamicDropdownForm } from 'src/app/ts-demo/form-dynamic-dropdown/form-dynamic-dropdown.form';
 
 @Component({
   selector: 'app-form-dynamic-dropdown',

@@ -10,7 +10,8 @@ import { GeneraliFormIdentificationDataComponent } from './ng-generali/form-iden
 import { ProductFormAddressComponent } from './ng-product/form-address/product-form-address.component';
 import { GeneraliFormAddressComponent } from './ng-generali/form-address/generali-form-address.component';
 import { DynamicFormSectionComponent } from './ng-dynamic-form/dynamic-form-section/dynamic-form-section.component';
-import { FormDynamicDropdownComponent } from './ng-product/form-dynamic-dropdown/form-dynamic-dropdown.component';
+import { FormDynamicDropdownComponent } from './ng-demo/form-dynamic-dropdown/form-dynamic-dropdown.component';
+import { FormDynamicCheckboxComponent } from './ng-demo/form-dynamic-checkbox/form-dynamic-checkbox.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { FormDynamicDropdownComponent } from './ng-product/form-dynamic-dropdown
     GeneraliFormAddressComponent,
     DynamicFormSectionComponent,
     FormDynamicDropdownComponent,
+    FormDynamicCheckboxComponent,
   ],
   imports: [BrowserModule, ReactiveFormsModule],
   providers: [],

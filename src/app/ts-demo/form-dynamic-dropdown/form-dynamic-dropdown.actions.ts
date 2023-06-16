@@ -8,10 +8,8 @@ export function getFillCity(formObj: DynamicForm) {
     state: StateService,
     event: any
   ) {
-    console.log('fillCity', formGroupValue, state, event);
-
     const country = formGroupValue.country;
-    const city = formObj.getUniqueQuestion('city') as DropdownQuestion;
+    const city = formObj.getUniqueQuestion('city') as DropdownQuestion<string>;
 
     if (country === 'italy') {
       city.options = [

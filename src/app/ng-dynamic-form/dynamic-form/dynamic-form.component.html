@@ -5,22 +5,22 @@
       <div [ngSwitch]="element.componentType">
         <app-dynamic-form-section
           *ngSwitchCase="'Section'"
-          [section]="getSection(element)"
+          [section]="asSection(element)"
           [form]="form"
         ></app-dynamic-form-section>
 
         <app-question
           *ngSwitchCase="'Question'"
-          [question]="getQuestion(element)"
+          [question]="asQuestion(element)"
           [form]="form"
         ></app-question>
 
         <button
           *ngSwitchCase="'Action'"
           [disabled]="!form.valid"
-          (click)="getAction(element).function(form.value, stateService)"
+          (click)="asAction(element).function(form.value, stateService)"
         >
-          {{ getAction(element).name }}
+          {{ asAction(element).name }}
         </button>
       </div>
     </div>
@@ -30,3 +30,5 @@
     <strong>Message from service</strong><br />{{ message }}
   </div>
 </div>
+
+{{ form.value | json }}

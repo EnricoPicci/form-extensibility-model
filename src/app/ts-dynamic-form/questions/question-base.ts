@@ -1,3 +1,4 @@
+import { StateService } from 'src/app/ts-state/state-service';
 import { DynamicFormElement, DynamicFormElementType } from '../form';
 
 export type QuestionBaseOptions<T> = {
@@ -5,10 +6,15 @@ export type QuestionBaseOptions<T> = {
   key: string;
   label?: string;
   required?: boolean;
+  enabled?: boolean | null | undefined;
   order?: number;
   controlType?: string;
   type?: string;
-  options?: { key: string; value: T }[];
+  onChangeHandler?: (
+    formGroupValue: any,
+    state: StateService,
+    event?: any
+  ) => void;
 };
 
 export abstract class QuestionBase<T> extends DynamicFormElement {
@@ -16,9 +22,14 @@ export abstract class QuestionBase<T> extends DynamicFormElement {
   key: string;
   label: string;
   required: boolean;
+  enabled: boolean | null | undefined;
   controlType: string;
   type: string;
-  options: { key: string; value: T }[];
+  onChangeHandler?: (
+    formGroupValue: any,
+    state: StateService,
+    event?: any
+  ) => void;
 
   override componentType: DynamicFormElementType = 'Question';
 
@@ -28,9 +39,10 @@ export abstract class QuestionBase<T> extends DynamicFormElement {
     this.key = options.key || '';
     this.label = options.label || '';
     this.required = !!options.required;
+    this.enabled = options.enabled;
     this.order = options.order === undefined ? 1 : options.order;
     this.controlType = options.controlType || '';
     this.type = options.type || '';
-    this.options = options.options || [];
+    this.onChangeHandler = options.onChangeHandler;
   }
 }

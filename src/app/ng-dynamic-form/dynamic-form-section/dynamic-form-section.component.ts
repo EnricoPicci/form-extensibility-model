@@ -24,10 +24,10 @@ export class DynamicFormSectionComponent implements OnInit {
     this.elements = this.section.getElementsOrdered();
   }
 
-  getQuestion(element: SectionElement) {
+  asQuestion(element: SectionElement) {
     return element as QuestionBase<any>;
   }
-  getAction(element: SectionElement) {
+  asAction(element: SectionElement) {
     return element as Action;
   }
 }

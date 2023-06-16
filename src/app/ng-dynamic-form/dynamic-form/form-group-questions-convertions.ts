@@ -7,9 +7,18 @@ export function toFormGroup(formObj: DynamicForm) {
 
   const questions = formObj.getAllQuestions();
   questions.forEach((question) => {
-    group[question.key] = question.required
-      ? new FormControl(question.value || '', Validators.required)
-      : new FormControl(question.value || '');
+    let val = question.value;
+    if (val === undefined || val === null) {
+      val = '';
+    }
+
+    const fc = question.required
+      ? new FormControl(val, Validators.required)
+      : new FormControl(val);
+
+    question.enabled === false ? fc.disable() : fc.enable();
+
+    group[question.key] = fc;
   });
   return new FormGroup(group);
 }

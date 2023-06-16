@@ -1,25 +1,16 @@
 import { StateService } from 'src/app/ts-state/state-service';
 import { QuestionBase, QuestionBaseOptions } from './question-base';
 
-export type DropdownQuestionOptions = QuestionBaseOptions<string> & {
-  onChangeHandler?: (
-    formGroupValue: any,
-    state: StateService,
-    event: any
-  ) => void;
+export type DropdownQuestionOptions<T> = QuestionBaseOptions<string> & {
+  options?: { key: string; value: T }[];
 };
 
-export class DropdownQuestion extends QuestionBase<string> {
+export class DropdownQuestion<T> extends QuestionBase<string> {
+  options: { key: string; value: T }[] = [];
   override controlType = 'dropdown';
 
-  onChangeHandler?: (
-    formGroupValue: any,
-    state: StateService,
-    event: any
-  ) => void;
-
-  constructor(options: DropdownQuestionOptions) {
+  constructor(options: DropdownQuestionOptions<T>) {
     super(options);
-    this.onChangeHandler = options.onChangeHandler;
+    this.options = options.options || [];
   }
 }
