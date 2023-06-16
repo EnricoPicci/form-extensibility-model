@@ -51,6 +51,7 @@ export class DynamicFormQuestionComponent {
 
   onBlur(event: any) {
     const textQuestion = this.question as TextboxQuestion;
+
     if (textQuestion.onBlurHandler) {
       textQuestion.onBlurHandler(this.form.value, this.stateService, event);
     }

@@ -12,6 +12,7 @@ import { GeneraliFormAddressComponent } from './ng-generali/form-address/general
 import { DynamicFormSectionComponent } from './ng-dynamic-form/dynamic-form-section/dynamic-form-section.component';
 import { FormDynamicDropdownComponent } from './ng-demo/demo-dynamic-dropdown/demo-dynamic-dropdown.component';
 import { FormDynamicCheckboxComponent } from './ng-demo/demo-dynamic-checkbox/demo-dynamic-checkbox.component';
+import { DemoDynamicOnblurComponent } from './ng-demo/demo-dynamic-onblur/demo-dynamic-onblur.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { FormDynamicCheckboxComponent } from './ng-demo/demo-dynamic-checkbox/de
     DynamicFormSectionComponent,
     FormDynamicDropdownComponent,
     FormDynamicCheckboxComponent,
+    DemoDynamicOnblurComponent,
   ],
   imports: [BrowserModule, ReactiveFormsModule],
   providers: [],
