@@ -17,6 +17,7 @@ export function toFormGroup(formObj: DynamicForm) {
       : new FormControl(val);
 
     question.enabled === false ? fc.disable() : fc.enable();
+    fc.setValue(question.value);
 
     group[question.key] = fc;
   });

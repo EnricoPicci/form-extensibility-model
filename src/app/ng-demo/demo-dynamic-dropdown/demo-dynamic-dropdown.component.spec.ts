@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FormDynamicDropdownComponent } from './form-dynamic-dropdown.component';
+import { FormDynamicDropdownComponent } from './demo-dynamic-dropdown.component';
 
 describe('FormDynamicDropdownComponent', () => {
   let component: FormDynamicDropdownComponent;
@@ -8,9 +8,8 @@ describe('FormDynamicDropdownComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FormDynamicDropdownComponent ]
-    })
-    .compileComponents();
+      declarations: [FormDynamicDropdownComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(FormDynamicDropdownComponent);
     component = fixture.componentInstance;

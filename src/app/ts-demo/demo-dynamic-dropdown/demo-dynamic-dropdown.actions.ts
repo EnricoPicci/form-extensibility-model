@@ -11,6 +11,9 @@ export function getFillCity(formObj: DynamicForm) {
     const country = formGroupValue.country;
     const city = formObj.getUniqueQuestion('city') as DropdownQuestion<string>;
 
+    formGroupValue.city = null;
+    state.setFormValue(formGroupValue);
+
     if (country === 'italy') {
       city.options = [
         { key: 'rome', value: 'Rome' },

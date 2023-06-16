@@ -1,6 +1,8 @@
 import { Component, Inject, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
+import { map } from 'rxjs';
+
 import { QuestionBase } from '../../ts-dynamic-form/questions/question-base';
 import { STATE_SERVICE } from 'src/app/state.service';
 import { StateService } from 'src/app/ts-state/state-service';
@@ -21,17 +23,14 @@ export class DynamicFormQuestionComponent {
 
   constructor(@Inject(STATE_SERVICE) public stateService: StateService) {}
 
+  questionValue$ = this.stateService.formValue$.pipe(
+    map((formValue) => formValue[this.question.key])
+  );
+
   get isValid() {
     return this.form.controls[this.question.key].valid;
   }
   get isNotEnabled() {
-    console.log(
-      this.question.key,
-      'is not enabled ---',
-      this.question.enabled,
-      this.question.enabled ? null : true
-    );
-    /* return this.question.enabled ? null : true; */
     return this.question.enabled ? null : true;
   }
 

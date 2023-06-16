@@ -1,6 +1,6 @@
 import { DynamicForm } from 'src/app/ts-dynamic-form/form';
 
-import { getEnableVat } from './form-dynamic-checkbox.actions';
+import { getEnableVat } from './demo-dynamic-checkbox.actions';
 import { TextboxQuestion } from 'src/app/ts-dynamic-form/questions/question-textbox';
 import { CheckboxQuestion } from 'src/app/ts-dynamic-form/questions/question-checkbox';
 
