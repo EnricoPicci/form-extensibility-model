@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 import { DynamicFormQuestionComponent } from './ng-dynamic-form/dynamic-form-question/dynamic-form-question.component';
 import { DynamicFormComponent } from './ng-dynamic-form/dynamic-form/dynamic-form.component';
 import { ProductFormIdentificationDataComponent } from './ng-product/form-identification-data/product-form-identification-data.component';
@@ -14,6 +15,9 @@ import { FormDynamicDropdownComponent } from './ng-demo/demo-dynamic-dropdown/de
 import { FormDynamicCheckboxComponent } from './ng-demo/demo-dynamic-checkbox/demo-dynamic-checkbox.component';
 import { DemoDynamicOnblurComponent } from './ng-demo/demo-dynamic-onblur/demo-dynamic-onblur.component';
 import { DemoDynamicValidationCallComponent } from './ng-demo/demo-dynamic-validation-call/demo-dynamic-validation-call.component';
+import { FormAComponent } from './ng-demo/demo-navigation/form-a/form-a.component';
+import { FormBComponent } from './ng-demo/demo-navigation/form-b/form-b.component';
+import { FormCComponent } from './ng-demo/demo-navigation/form-c/form-c.component';
 
 @NgModule({
   declarations: [
@@ -29,8 +33,11 @@ import { DemoDynamicValidationCallComponent } from './ng-demo/demo-dynamic-valid
     FormDynamicCheckboxComponent,
     DemoDynamicOnblurComponent,
     DemoDynamicValidationCallComponent,
+    FormAComponent,
+    FormBComponent,
+    FormCComponent,
   ],
-  imports: [BrowserModule, ReactiveFormsModule],
+  imports: [BrowserModule, ReactiveFormsModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })

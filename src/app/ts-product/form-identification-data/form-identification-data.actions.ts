@@ -1,6 +1,11 @@
-import { StateService } from '../../ts-state/state-service';
+import { FormService } from '../../ts-state/form-service';
+import { StateService } from 'src/app/ts-state/state-service';
 
-export function productSave(formGroupValue: any, state: StateService) {
+export function productSave(
+  formGroupValue: any,
+  state: StateService,
+  formService: FormService
+) {
   // set the new message via the state service
   state.setMessage(
     `ProductIdentificationData saved: ${JSON.stringify(formGroupValue)}`

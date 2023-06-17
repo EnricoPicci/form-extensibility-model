@@ -5,6 +5,7 @@ import { Action } from 'src/app/ts-dynamic-form/actions/action';
 import { SectionElement } from 'src/app/ts-dynamic-form/form-element';
 import { QuestionBase } from 'src/app/ts-dynamic-form/questions/question-base';
 import { Section } from 'src/app/ts-dynamic-form/section';
+import { FormService } from 'src/app/ts-state/form-service';
 import { StateService } from 'src/app/ts-state/state-service';
 
 @Component({
@@ -16,7 +17,10 @@ export class DynamicFormSectionComponent implements OnInit {
   @Input() section!: Section;
   @Input() form!: FormGroup;
 
-  constructor(public stateService: StateService) {}
+  constructor(
+    @Inject(STATE_SERVICE) public state: StateService,
+    public formService: FormService
+  ) {}
 
   elements!: SectionElement[];
 

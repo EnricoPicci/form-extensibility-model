@@ -1,3 +1,4 @@
+import { FormService } from 'src/app/ts-state/form-service';
 import { StateService } from 'src/app/ts-state/state-service';
 import { DynamicFormElement, DynamicFormElementType } from '../form';
 
@@ -13,6 +14,7 @@ export type QuestionBaseOptions<T> = {
   onChangeHandler?: (
     formGroupValue: any,
     state: StateService,
+    formService: FormService,
     event?: any
   ) => void;
 };
@@ -28,6 +30,7 @@ export abstract class QuestionBase<T> extends DynamicFormElement {
   onChangeHandler?: (
     formGroupValue: any,
     state: StateService,
+    formService: FormService,
     event?: any
   ) => void;
 

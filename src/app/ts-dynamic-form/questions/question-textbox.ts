@@ -1,8 +1,14 @@
+import { FormService } from 'src/app/ts-state/form-service';
 import { StateService } from 'src/app/ts-state/state-service';
 import { QuestionBase, QuestionBaseOptions } from './question-base';
 
 export type TextboxQuestionOptions = QuestionBaseOptions<string> & {
-  onBlurHandler?: (formGroupValue: any, state: StateService) => void;
+  onBlurHandler?: (
+    formGroupValue: any,
+    state: StateService,
+    formService: FormService,
+    event: any
+  ) => void;
 };
 
 export class TextboxQuestion extends QuestionBase<string> {
@@ -11,6 +17,7 @@ export class TextboxQuestion extends QuestionBase<string> {
   onBlurHandler?: (
     formGroupValue: any,
     state: StateService,
+    formService: FormService,
     event: any
   ) => void;
 

@@ -1,11 +1,13 @@
 import { DynamicForm } from 'src/app/ts-dynamic-form/form';
 import { DropdownQuestion } from 'src/app/ts-dynamic-form/questions/question-dropdown';
+import { FormService } from 'src/app/ts-state/form-service';
 import { StateService } from 'src/app/ts-state/state-service';
 
 export function getFillCity(formObj: DynamicForm) {
   return function fillCity(
     formGroupValue: any,
     state: StateService,
+    formService: FormService,
     event: any
   ) {
     const country = formGroupValue.country;
@@ -14,10 +16,9 @@ export function getFillCity(formObj: DynamicForm) {
     formGroupValue.city = null;
     // here the value of the object represented by the form changes and therefore suche value neeeds to be
     // brodcaseted via the state service
-    state.setFormValue(formGroupValue);
+    formService.updateFormValue(formGroupValue);
 
-    // here we change synchronously the options of the city question
-    // since it is synchrounoud we do not need to broadcast the change via the state service
+    // here we change the options of the city question
     if (country === 'italy') {
       city.options = [
         { key: 'rome', value: 'Rome' },
@@ -29,5 +30,6 @@ export function getFillCity(formObj: DynamicForm) {
         { key: 'lyon', value: 'Lyon' },
       ];
     }
+    formService.updateFormLayout(formObj);
   };
 }

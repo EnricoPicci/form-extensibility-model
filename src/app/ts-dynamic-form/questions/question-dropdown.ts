@@ -1,4 +1,4 @@
-import { StateService } from 'src/app/ts-state/state-service';
+import { FormService } from 'src/app/ts-state/form-service';
 import { QuestionBase, QuestionBaseOptions } from './question-base';
 
 export type DropdownQuestionOptions<T> = QuestionBaseOptions<string> & {

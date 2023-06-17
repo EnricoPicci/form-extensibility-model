@@ -1,25 +1,30 @@
-import { Subject } from 'rxjs';
-import { DynamicForm } from '../ts-dynamic-form/form';
-
+import { Subject, of, tap } from 'rxjs';
 export class StateService {
-  private _formLayout$ = new Subject<DynamicForm>();
-  public formLayout$ = this._formLayout$.asObservable();
+  private _formValue: any;
+  public get formValue(): any {
+    return this._formValue;
+  }
+  public set formValue(value: any) {
+    this._formValue = value;
+  }
 
-  private _formValue$ = new Subject<any>();
-  public formValue$ = this._formValue$.asObservable();
+  private _nextRoute$ = new Subject<any>();
+  public nextRoute$ = this._nextRoute$.asObservable();
 
   private _message$ = new Subject<string>();
   public message$ = this._message$.asObservable();
 
-  public setFormLayout(layout: DynamicForm) {
-    this._formLayout$.next(layout);
-  }
-
-  public setFormValue(val: any) {
-    this._formValue$.next(val);
+  public nextRoute(route: string) {
+    this._nextRoute$.next(route);
   }
 
   public setMessage(message: string) {
     this._message$.next(message);
+  }
+
+  public saveFormValue() {
+    return of(`Saved form value`).pipe(
+      tap((message: string) => this.setMessage(message))
+    );
   }
 }

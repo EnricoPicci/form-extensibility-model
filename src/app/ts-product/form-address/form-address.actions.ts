@@ -1,6 +1,11 @@
-import { StateService } from '../../ts-state/state-service';
+import { StateService } from 'src/app/ts-state/state-service';
+import { FormService } from '../../ts-state/form-service';
 
-export function productSaveAddress(formGroupValue: any, state: StateService) {
+export function productSaveAddress(
+  formGroupValue: any,
+  state: StateService,
+  formService: FormService
+) {
   // set the new message via the state service
   state.setMessage(
     `Address saved with Product logic: ${JSON.stringify(formGroupValue)}`
@@ -9,7 +14,8 @@ export function productSaveAddress(formGroupValue: any, state: StateService) {
 
 export function productValidateAddress(
   formGroupValue: any,
-  state: StateService
+  state: StateService,
+  formService: FormService
 ) {
   if (formGroupValue.street === undefined) {
     throw new Error('Street is required');

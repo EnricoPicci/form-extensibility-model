@@ -1,12 +1,15 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { tap } from 'rxjs';
 
 import { QuestionBase } from '../../ts-dynamic-form/questions/question-base';
-import { StateService } from 'src/app/ts-state/state-service';
+import { FormService } from 'src/app/ts-state/form-service';
 import { DropdownQuestion } from 'src/app/ts-dynamic-form/questions/question-dropdown';
 import { TextboxQuestion } from 'src/app/ts-dynamic-form/questions/question-textbox';
+import { STATE_SERVICE } from 'src/app/state.service';
+import { StateService } from 'src/app/ts-state/state-service';
 
 @Component({
   selector: 'app-question',
@@ -17,10 +20,14 @@ export class DynamicFormQuestionComponent implements OnInit {
   @Input() question!: QuestionBase<any>;
   @Input() form!: FormGroup;
 
-  constructor(public stateService: StateService) {}
+  constructor(
+    @Inject(STATE_SERVICE) public state: StateService,
+    public formService: FormService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.stateService.formLayout$
+    this.formService.formLayout$
       .pipe(
         tap((formLayout) => {
           const control = this.form.controls[this.question.key];
@@ -34,13 +41,21 @@ export class DynamicFormQuestionComponent implements OnInit {
       )
       .subscribe();
 
-    this.stateService.formValue$
+    this.formService.formValue$
       .pipe(
         tap((formValue) => {
           const val = formValue[this.question.key];
           const v = val ?? '';
           const control = this.form.controls[this.question.key];
           control.setValue(v);
+        })
+      )
+      .subscribe();
+
+    this.state.nextRoute$
+      .pipe(
+        tap((nextRoute) => {
+          this.router.navigate([nextRoute]);
         })
       )
       .subscribe();
@@ -64,7 +79,12 @@ export class DynamicFormQuestionComponent implements OnInit {
   onChange(event: any) {
     const question = this.question;
     if (question.onChangeHandler) {
-      question.onChangeHandler(this.form.value, this.stateService, event);
+      question.onChangeHandler(
+        this.form.value,
+        this.state,
+        this.formService,
+        event
+      );
     }
   }
 
@@ -72,7 +92,12 @@ export class DynamicFormQuestionComponent implements OnInit {
     const textQuestion = this.question as TextboxQuestion;
 
     if (textQuestion.onBlurHandler) {
-      textQuestion.onBlurHandler(this.form.value, this.stateService, event);
+      textQuestion.onBlurHandler(
+        this.form.value,
+        this.state,
+        this.formService,
+        event
+      );
     }
   }
 
@@ -81,7 +106,8 @@ export class DynamicFormQuestionComponent implements OnInit {
     if (dropDownQuestion.onChangeHandler) {
       dropDownQuestion.onChangeHandler(
         this.form.value,
-        this.stateService,
+        this.state,
+        this.formService,
         event
       );
     }
