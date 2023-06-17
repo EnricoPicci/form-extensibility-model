@@ -1,25 +1,25 @@
 import { DynamicForm } from 'src/app/ts-dynamic-form/form';
 
 import { TextboxQuestion } from 'src/app/ts-dynamic-form/questions/question-textbox';
-import { getEnablePlate } from './demo-dynamic-onblur.actions';
+import { getEnableDriverName } from './demo-dynamic-validation-call.actions';
 
-export function getDynamicOnblurForm() {
+export function getDynamicValidationForm() {
   const formObj = new DynamicForm({
-    title: 'Dynamic Onblur Form',
+    title: 'Dynamic Validation Call',
   });
 
   formObj.elements = [
     new TextboxQuestion({
-      key: 'carBrand',
-      label: 'Car Brand',
+      key: 'plate',
+      label: 'Plate',
       value: '',
       required: false,
       order: 1,
-      onBlurHandler: getEnablePlate(formObj),
+      onBlurHandler: getEnableDriverName(formObj),
     }),
     new TextboxQuestion({
-      key: 'plate',
-      label: 'Plate',
+      key: 'driverName',
+      label: 'Driver Name',
       value: '',
       required: false,
       enabled: false,

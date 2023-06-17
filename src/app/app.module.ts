@@ -13,6 +13,7 @@ import { DynamicFormSectionComponent } from './ng-dynamic-form/dynamic-form-sect
 import { FormDynamicDropdownComponent } from './ng-demo/demo-dynamic-dropdown/demo-dynamic-dropdown.component';
 import { FormDynamicCheckboxComponent } from './ng-demo/demo-dynamic-checkbox/demo-dynamic-checkbox.component';
 import { DemoDynamicOnblurComponent } from './ng-demo/demo-dynamic-onblur/demo-dynamic-onblur.component';
+import { DemoDynamicValidationCallComponent } from './ng-demo/demo-dynamic-validation-call/demo-dynamic-validation-call.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { DemoDynamicOnblurComponent } from './ng-demo/demo-dynamic-onblur/demo-d
     FormDynamicDropdownComponent,
     FormDynamicCheckboxComponent,
     DemoDynamicOnblurComponent,
+    DemoDynamicValidationCallComponent,
   ],
   imports: [BrowserModule, ReactiveFormsModule],
   providers: [],

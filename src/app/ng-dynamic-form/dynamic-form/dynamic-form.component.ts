@@ -13,6 +13,7 @@ import { Section } from 'src/app/ts-dynamic-form/section';
   selector: 'app-dynamic-form',
   templateUrl: './dynamic-form.component.html',
   styleUrls: ['./dynamic-form.component.css'],
+  providers: [StateService],
 })
 export class DynamicFormComponent implements OnInit {
   @Input() formObj!: DynamicForm;
@@ -22,7 +23,7 @@ export class DynamicFormComponent implements OnInit {
   elements: DynamicFormElement[] = [];
   messages: string[] = [];
 
-  constructor(@Inject(STATE_SERVICE) public stateService: StateService) {}
+  constructor(public stateService: StateService) {}
 
   ngOnInit() {
     this.form = toFormGroup(this.formObj);

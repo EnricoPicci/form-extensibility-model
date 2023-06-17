@@ -16,6 +16,7 @@ export function toFormGroup(formObj: DynamicForm) {
       ? new FormControl(val, Validators.required)
       : new FormControl(val);
 
+    // the value of enabled must be explicitly set to false if we want to disable the control
     question.enabled === false ? fc.disable() : fc.enable();
     fc.setValue(question.value);
 

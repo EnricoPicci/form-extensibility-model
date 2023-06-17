@@ -16,7 +16,7 @@ export class DynamicFormSectionComponent implements OnInit {
   @Input() section!: Section;
   @Input() form!: FormGroup;
 
-  constructor(@Inject(STATE_SERVICE) public stateService: StateService) {}
+  constructor(public stateService: StateService) {}
 
   elements!: SectionElement[];
 

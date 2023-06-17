@@ -12,5 +12,9 @@ export function getEnableVat(formObj: DynamicForm) {
     const vat = formObj.getUniqueQuestion('vat');
 
     vat.enabled = isBusiness;
+    state.setFormLayout(formObj);
+
+    formGroupValue.vat = isBusiness ? vat.value : ''; // reset the value of vat
+    state.setFormValue(formGroupValue);
   };
 }

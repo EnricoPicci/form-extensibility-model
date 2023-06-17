@@ -8,8 +8,6 @@
       [formControlName]="question.key"
       [id]="question.key"
       [type]="question.type"
-      [attr.disabled]="isNotEnabled"
-      [value]="questionValue$ | async"
       (blur)="asTextbox(question).onBlurHandler ? onBlur($event) : null"
     />
 
@@ -18,8 +16,6 @@
       *ngSwitchCase="'dropdown'"
       [id]="question.key"
       [formControlName]="question.key"
-      [attr.disabled]="isNotEnabled"
-      [value]="questionValue$ | async"
       (change)="onDropDownChange($event)"
     >
       <option
@@ -38,8 +34,6 @@
       [formControlName]="question.key"
       [id]="question.key"
       type="checkbox"
-      [attr.disabled]="isNotEnabled"
-      [value]="questionValue$ | async"
       (change)="onChange($event)"
     />
   </div>

@@ -1,15 +1,11 @@
-import { Component, Inject, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
-import { map } from 'rxjs';
+import { tap } from 'rxjs';
 
 import { QuestionBase } from '../../ts-dynamic-form/questions/question-base';
-import { STATE_SERVICE } from 'src/app/state.service';
 import { StateService } from 'src/app/ts-state/state-service';
-import {
-  DropdownQuestion,
-  DropdownQuestionOptions,
-} from 'src/app/ts-dynamic-form/questions/question-dropdown';
+import { DropdownQuestion } from 'src/app/ts-dynamic-form/questions/question-dropdown';
 import { TextboxQuestion } from 'src/app/ts-dynamic-form/questions/question-textbox';
 
 @Component({
@@ -17,21 +13,44 @@ import { TextboxQuestion } from 'src/app/ts-dynamic-form/questions/question-text
   templateUrl: './dynamic-form-question.component.html',
   styleUrls: ['./dynamic-form-question.component.css'],
 })
-export class DynamicFormQuestionComponent {
+export class DynamicFormQuestionComponent implements OnInit {
   @Input() question!: QuestionBase<any>;
   @Input() form!: FormGroup;
 
-  constructor(@Inject(STATE_SERVICE) public stateService: StateService) {}
+  constructor(public stateService: StateService) {}
 
-  questionValue$ = this.stateService.formValue$.pipe(
-    map((formValue) => formValue[this.question.key])
-  );
+  ngOnInit(): void {
+    this.stateService.formLayout$
+      .pipe(
+        tap((formLayout) => {
+          const control = this.form.controls[this.question.key];
+          if (!control) {
+            return;
+          }
+          const question = formLayout.getUniqueQuestion(this.question.key);
+          // the value of enabled must be explicitly set to false if we want to disable the control
+          question.enabled !== false ? control.enable() : control.disable();
+        })
+      )
+      .subscribe();
+
+    this.stateService.formValue$
+      .pipe(
+        tap((formValue) => {
+          const val = formValue[this.question.key];
+          const v = val ?? '';
+          const control = this.form.controls[this.question.key];
+          control.setValue(v);
+        })
+      )
+      .subscribe();
+  }
 
   get isValid() {
-    return this.form.controls[this.question.key].valid;
-  }
-  get isNotEnabled() {
-    return this.question.enabled ? null : true;
+    // it looks like a control which is disabled has the valid getter responding false
+    // and the invalid getter responds false
+    // since a disabled control is not INVALID by definition, then I am using the invalid getter
+    return !this.form.controls[this.question.key].invalid;
   }
 
   asTextbox(element: QuestionBase<any>) {

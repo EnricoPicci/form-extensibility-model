@@ -12,8 +12,12 @@ export function getFillCity(formObj: DynamicForm) {
     const city = formObj.getUniqueQuestion('city') as DropdownQuestion<string>;
 
     formGroupValue.city = null;
+    // here the value of the object represented by the form changes and therefore suche value neeeds to be
+    // brodcaseted via the state service
     state.setFormValue(formGroupValue);
 
+    // here we change synchronously the options of the city question
+    // since it is synchrounoud we do not need to broadcast the change via the state service
     if (country === 'italy') {
       city.options = [
         { key: 'rome', value: 'Rome' },
