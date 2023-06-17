@@ -11,7 +11,10 @@ export function getNext(formObj: DynamicForm) {
   ) {
     const storedFormVal = state.formValue;
     if (storedFormVal) {
-      formGroupValue = { ...formGroupValue, ...storedFormVal };
+      formGroupValue = {
+        ...storedFormVal,
+        ...formGroupValue,
+      };
     }
     state.formValue = formGroupValue;
     state.nextRoute('form-c');
@@ -27,7 +30,10 @@ export function getPrevious(formObj: DynamicForm) {
   ) {
     const storedFormVal = state.formValue;
     if (storedFormVal) {
-      formGroupValue = { ...formGroupValue, ...storedFormVal };
+      formGroupValue = {
+        ...storedFormVal,
+        ...formGroupValue,
+      };
     }
     state.formValue = formGroupValue;
     state.nextRoute('form-a');

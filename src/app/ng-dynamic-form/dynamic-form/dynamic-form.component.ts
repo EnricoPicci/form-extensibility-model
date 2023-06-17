@@ -35,7 +35,6 @@ export class DynamicFormComponent implements OnInit {
     this.elements = this.formObj.getElementsOrdered();
 
     this.state.message$.subscribe((message) => {
-      console.log('|||||||||||||||||||||||message', message);
       this.messages.push(message);
     });
   }

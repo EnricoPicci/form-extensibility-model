@@ -12,7 +12,10 @@ export function getPrevious(formObj: DynamicForm) {
   ) {
     const storedFormVal = state.formValue;
     if (storedFormVal) {
-      formGroupValue = { ...formGroupValue, ...storedFormVal };
+      formGroupValue = {
+        ...storedFormVal,
+        ...formGroupValue,
+      };
     }
     state.formValue = formGroupValue;
     state.nextRoute('form-b');
@@ -28,7 +31,10 @@ export function getSave(formObj: DynamicForm) {
   ) {
     const storedFormVal = state.formValue;
     if (storedFormVal) {
-      formGroupValue = { ...formGroupValue, ...storedFormVal };
+      formGroupValue = {
+        ...storedFormVal,
+        ...formGroupValue,
+      };
     }
 
     // here we simulate to go to the server to save the form

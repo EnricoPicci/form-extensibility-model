@@ -2,7 +2,7 @@ import { Component, Inject, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { tap } from 'rxjs';
+import { merge, tap } from 'rxjs';
 
 import { QuestionBase } from '../../ts-dynamic-form/questions/question-base';
 import { FormService } from 'src/app/ts-state/form-service';
@@ -41,10 +41,13 @@ export class DynamicFormQuestionComponent implements OnInit {
       )
       .subscribe();
 
-    this.formService.formValue$
+    merge(this.formService.formValue$, this.state.formValue$)
       .pipe(
         tap((formValue) => {
           const val = formValue[this.question.key];
+          if (val === undefined || val === null) {
+            return;
+          }
           const v = val ?? '';
           const control = this.form.controls[this.question.key];
           control.setValue(v);
