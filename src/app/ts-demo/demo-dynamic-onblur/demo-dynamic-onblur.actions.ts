@@ -8,14 +8,13 @@ export function getEnablePlate(formObj: DynamicForm) {
     event?: any
   ) {
     const carBrand = formGroupValue.carBrand;
-    const plate = formGroupValue.plate;
-    const plateControl = formObj.getUniqueQuestion('plate');
+    const plateQuestion = formObj.getUniqueQuestion('plate');
 
-    plateControl.enabled = carBrand.trim().length > 0;
+    plateQuestion.enabled = carBrand.trim().length > 0;
     state.setFormLayout(formObj);
 
     // reset the value of plate if plate is disabled
-    formGroupValue.plate = plateControl.enabled ? formGroupValue.plate : '';
+    formGroupValue.plate = plateQuestion.enabled ? formGroupValue.plate : '';
     state.setFormValue(formGroupValue);
   };
 }
