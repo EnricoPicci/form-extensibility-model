@@ -4,40 +4,26 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DynamicFormQuestionComponent } from './ng-dynamic-form/dynamic-form-question/dynamic-form-question.component';
-import { DynamicFormComponent } from './ng-dynamic-form/dynamic-form/dynamic-form.component';
 import { ProductFormIdentificationDataComponent } from './ng-product/form-identification-data/product-form-identification-data.component';
 import { GeneraliFormIdentificationDataComponent } from './ng-generali/form-identification-data/generali-form-identification-data.component';
 import { ProductFormAddressComponent } from './ng-product/form-address/product-form-address.component';
 import { GeneraliFormAddressComponent } from './ng-generali/form-address/generali-form-address.component';
-import { DynamicFormSectionComponent } from './ng-dynamic-form/dynamic-form-section/dynamic-form-section.component';
-import { FormDynamicDropdownComponent } from './ng-demo/demo-dynamic-dropdown/demo-dynamic-dropdown.component';
-import { FormDynamicCheckboxComponent } from './ng-demo/demo-dynamic-checkbox/demo-dynamic-checkbox.component';
-import { DemoDynamicOnblurComponent } from './ng-demo/demo-dynamic-onblur/demo-dynamic-onblur.component';
-import { DemoDynamicValidationCallComponent } from './ng-demo/demo-dynamic-validation-call/demo-dynamic-validation-call.component';
-import { FormAComponent } from './ng-demo/demo-navigation/form-a/form-a.component';
-import { FormBComponent } from './ng-demo/demo-navigation/form-b/form-b.component';
-import { FormCComponent } from './ng-demo/demo-navigation/form-c/form-c.component';
+import { NgDynamicFormsModule } from './ng-dynamic-forms/ng-dynamic-forms.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DynamicFormQuestionComponent,
-    DynamicFormComponent,
     ProductFormIdentificationDataComponent,
     GeneraliFormIdentificationDataComponent,
     ProductFormAddressComponent,
     GeneraliFormAddressComponent,
-    DynamicFormSectionComponent,
-    FormDynamicDropdownComponent,
-    FormDynamicCheckboxComponent,
-    DemoDynamicOnblurComponent,
-    DemoDynamicValidationCallComponent,
-    FormAComponent,
-    FormBComponent,
-    FormCComponent,
   ],
-  imports: [BrowserModule, ReactiveFormsModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
+    NgDynamicFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -1,12 +1,11 @@
-import { StateService } from 'src/app/ts-state/state-service';
-import { FormService } from '../../ts-state/form-service';
+import { FormService } from '../state/form-service';
 import { DynamicFormElement, DynamicFormElementType } from '../form';
 
 export class Action extends DynamicFormElement {
   name: string;
   function: (
     formGroupValue: any,
-    state: StateService,
+
     formService: FormService,
     event?: any
   ) => void;
@@ -18,7 +17,7 @@ export class Action extends DynamicFormElement {
     name: string;
     function: (
       formGroupValue: any,
-      state: StateService,
+
       formService: FormService,
       event?: any
     ) => void;

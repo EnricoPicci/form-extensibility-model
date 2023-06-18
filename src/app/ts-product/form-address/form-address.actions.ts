@@ -1,20 +1,19 @@
-import { StateService } from 'src/app/ts-state/state-service';
-import { FormService } from '../../ts-state/form-service';
+import { FormService } from '../../ts-dynamic-form/state/form-service';
 
 export function productSaveAddress(
   formGroupValue: any,
-  state: StateService,
+
   formService: FormService
 ) {
   // set the new message via the state service
-  state.setMessage(
+  formService.setMessage(
     `Address saved with Product logic: ${JSON.stringify(formGroupValue)}`
   );
 }
 
 export function productValidateAddress(
   formGroupValue: any,
-  state: StateService,
+
   formService: FormService
 ) {
   if (formGroupValue.street === undefined) {
@@ -26,7 +25,7 @@ export function productValidateAddress(
     ? 'Address is valid'
     : 'Address is not valid. It should be at least 3 characters long';
   // set the new message via the state service
-  state.setMessage(
+  formService.setMessage(
     `Address validated with Product logic. Is valid? ${message}`
   );
 }
