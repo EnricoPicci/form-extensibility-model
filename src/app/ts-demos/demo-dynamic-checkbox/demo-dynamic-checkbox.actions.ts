@@ -1,10 +1,10 @@
 import { DynamicForm } from 'src/app/ts-dynamic-form/form';
 import { FormService } from 'src/app/ts-dynamic-form/state/form-service';
-import { DemoDynamicCheckboxState } from './demo-dynamic-checkbox.state';
+import { DemoDynamicCheckboxService } from './demo-dynamic-checkbox.service';
 
 export function getEnableVat(formObj: DynamicForm) {
   return (formGroupValue: any, service: FormService, event: any) => {
-    const _service = service as DemoDynamicCheckboxState;
+    const _service = service as DemoDynamicCheckboxService;
     _service.enableVat(formGroupValue, formObj);
   };
 }

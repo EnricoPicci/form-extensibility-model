@@ -1,7 +1,8 @@
+import { DynamicForm } from 'src/app/ts-dynamic-form/form';
 import { FormService } from 'src/app/ts-dynamic-form/state/form-service';
 
-export class DemoDynamicCheckboxState extends FormService {
-  enableVat(formGroupValue: any, formObj: any) {
+export class DemoDynamicCheckboxService extends FormService {
+  enableVat(formGroupValue: any, formObj: DynamicForm) {
     const isBusiness = formGroupValue.business;
     const vat = formObj.getUniqueQuestion('vat');
 
