@@ -9,7 +9,7 @@ export abstract class DynamicFormElement {
   order!: number;
 }
 
-export class DynamicForm {
+export class DynamicFormLayout {
   title: string;
   elements: DynamicFormElement[];
 

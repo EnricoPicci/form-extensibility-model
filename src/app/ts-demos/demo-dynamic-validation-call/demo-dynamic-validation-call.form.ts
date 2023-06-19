@@ -1,10 +1,10 @@
-import { DynamicForm } from 'src/app/ts-dynamic-form/form';
+import { DynamicFormLayout } from 'src/app/ts-dynamic-form/form';
 
 import { TextboxQuestion } from 'src/app/ts-dynamic-form/questions/question-textbox';
 import { getEnableDriverName } from './demo-dynamic-validation-call.actions';
 
 export function getDynamicValidationForm() {
-  const formObj = new DynamicForm({
+  const formObj = new DynamicFormLayout({
     title: 'Dynamic Validation Call',
   });
 

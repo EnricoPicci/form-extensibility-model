@@ -35,6 +35,7 @@ const routes: Routes = [
         (m) => m.NavigationModule
       ),
   },
+  { path: 'dialogue-product', loadChildren: () => import('./ng-demos/pass-dialogue/dialogue-product/dialogue-product.module').then(m => m.DialogueProductModule) },
 ];
 
 @NgModule({

@@ -1,10 +1,10 @@
 import { of, tap } from 'rxjs';
-import { DynamicForm } from 'src/app/ts-dynamic-form/form';
+import { DynamicFormLayout } from 'src/app/ts-dynamic-form/form';
 import { FormService } from 'src/app/ts-dynamic-form/state/form-service';
 import { getRemoteServer } from './remote-server/remote-server';
 
 export class DemoDynamicValidationCallService extends FormService {
-  enableDriverName(formGroupValue: any, formObj: DynamicForm) {
+  enableDriverName(formGroupValue: any, formObj: DynamicFormLayout) {
     const plate = formGroupValue.plate;
 
     // here we simulate to go to the server to check if the plate is valid

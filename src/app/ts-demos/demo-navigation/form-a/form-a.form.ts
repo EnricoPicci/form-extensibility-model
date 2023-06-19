@@ -1,11 +1,11 @@
-import { DynamicForm } from 'src/app/ts-dynamic-form/form';
+import { DynamicFormLayout as DynamicFormLayout } from 'src/app/ts-dynamic-form/form';
 
 import { TextboxQuestion } from 'src/app/ts-dynamic-form/questions/question-textbox';
 import { getNext } from './form-a.actions';
 import { Action } from 'src/app/ts-dynamic-form/actions/action';
 
 export function getDynamicForm_A() {
-  const formObj = new DynamicForm({
+  const formObj = new DynamicFormLayout({
     title: 'Dynamic Form A',
   });
 

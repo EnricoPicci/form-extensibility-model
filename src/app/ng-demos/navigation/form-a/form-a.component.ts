@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { getDynamicDropdownForm } from 'src/app/ts-demos/demo-dynamic-dropdown/demo-dynamic-dropdown.form';
 import { DemoDynamicNavigationService } from 'src/app/ts-demos/demo-navigation/demo-navigation.service';
 import { getDynamicForm_A } from 'src/app/ts-demos/demo-navigation/form-a/form-a.form';
-import { DynamicForm } from 'src/app/ts-dynamic-form/form';
+import { DynamicFormLayout } from 'src/app/ts-dynamic-form/form';
 
 @Component({
   selector: 'app-form-a',
@@ -10,7 +10,7 @@ import { DynamicForm } from 'src/app/ts-dynamic-form/form';
   styleUrls: ['./form-a.component.css'],
 })
 export class FormAComponent {
-  form!: DynamicForm;
+  form!: DynamicFormLayout;
   title = 'Form A';
 
   constructor(public formService: DemoDynamicNavigationService) {}

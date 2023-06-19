@@ -1,11 +1,11 @@
-import { DynamicForm } from 'src/app/ts-dynamic-form/form';
+import { DynamicFormLayout } from 'src/app/ts-dynamic-form/form';
 
 import { getEnableVat } from './demo-dynamic-checkbox.actions';
 import { TextboxQuestion } from 'src/app/ts-dynamic-form/questions/question-textbox';
 import { CheckboxQuestion } from 'src/app/ts-dynamic-form/questions/question-checkbox';
 
 export function getDynamicCheckboxForm() {
-  const formObj = new DynamicForm({
+  const formObj = new DynamicFormLayout({
     title: 'Dynamic Checkbox',
   });
 

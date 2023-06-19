@@ -4,7 +4,10 @@ import { FormGroup } from '@angular/forms';
 import { toFormGroup } from './form-group-questions-convertions';
 
 import { FormService } from '../../ts-dynamic-form/state/form-service';
-import { DynamicForm, DynamicFormElement } from 'src/app/ts-dynamic-form/form';
+import {
+  DynamicFormLayout,
+  DynamicFormElement,
+} from 'src/app/ts-dynamic-form/form';
 import { QuestionBase } from 'src/app/ts-dynamic-form/questions/question-base';
 import { Action } from 'src/app/ts-dynamic-form/actions/action';
 import { Section } from 'src/app/ts-dynamic-form/section';
@@ -16,13 +19,12 @@ import { Section } from 'src/app/ts-dynamic-form/section';
   providers: [FormService],
 })
 export class DynamicFormComponent implements OnInit {
-  @Input() formObj!: DynamicForm;
+  @Input() formObj!: DynamicFormLayout;
   @Input() title!: string;
   @Input() formService!: FormService;
 
   form!: FormGroup;
   elements: DynamicFormElement[] = [];
-  messages: string[] = [];
 
   constructor() {}
 
@@ -32,7 +34,7 @@ export class DynamicFormComponent implements OnInit {
     this.elements = this.formObj.getElementsOrdered();
 
     this.formService.message$.subscribe((message) => {
-      this.messages.push(message);
+      console.log(`>>>>>>>>>>>>>> `, message);
     });
   }
 

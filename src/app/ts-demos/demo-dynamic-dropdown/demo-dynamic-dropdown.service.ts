@@ -1,9 +1,9 @@
-import { DynamicForm } from 'src/app/ts-dynamic-form/form';
+import { DynamicFormLayout } from 'src/app/ts-dynamic-form/form';
 import { DropdownQuestion } from 'src/app/ts-dynamic-form/questions/question-dropdown';
 import { FormService } from 'src/app/ts-dynamic-form/state/form-service';
 
 export class DemoDynamicDropdownService extends FormService {
-  fillCity(formGroupValue: any, formObj: DynamicForm) {
+  fillCity(formGroupValue: any, formObj: DynamicFormLayout) {
     const country = formGroupValue.country;
     const city = formObj.getUniqueQuestion('city') as DropdownQuestion<string>;
 

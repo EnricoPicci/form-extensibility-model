@@ -1,10 +1,10 @@
-import { DynamicForm } from 'src/app/ts-dynamic-form/form';
+import { DynamicFormLayout } from 'src/app/ts-dynamic-form/form';
 
 import { TextboxQuestion } from 'src/app/ts-dynamic-form/questions/question-textbox';
 import { getEnablePlate } from './demo-dynamic-onblur.actions';
 
 export function getDynamicOnblurForm() {
-  const formObj = new DynamicForm({
+  const formObj = new DynamicFormLayout({
     title: 'Dynamic Onblur Form',
   });
 

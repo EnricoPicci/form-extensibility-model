@@ -1,11 +1,11 @@
 import { ReplaySubject, Subject, of, tap } from 'rxjs';
-import { DynamicForm } from '../form';
+import { DynamicFormLayout } from '../form';
 
 export class FormService {
   private _formValue$ = new ReplaySubject<any>(1);
   public formValue$ = this._formValue$.asObservable();
 
-  private _formLayout$ = new Subject<DynamicForm>();
+  private _formLayout$ = new Subject<DynamicFormLayout>();
   public formLayout$ = this._formLayout$.asObservable();
 
   private _nextRoute$ = new Subject<string>();
@@ -23,7 +23,7 @@ export class FormService {
     this._formValue = value;
   }
 
-  public updateFormLayout(layout: DynamicForm) {
+  public updateFormLayout(layout: DynamicFormLayout) {
     this._formLayout$.next(layout);
   }
 

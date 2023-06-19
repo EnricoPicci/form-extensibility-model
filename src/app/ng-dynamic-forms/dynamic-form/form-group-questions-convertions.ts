@@ -1,8 +1,8 @@
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { DynamicForm } from 'src/app/ts-dynamic-form/form';
+import { DynamicFormLayout } from 'src/app/ts-dynamic-form/form';
 
-export function toFormGroup(formObj: DynamicForm) {
+export function toFormGroup(formObj: DynamicFormLayout) {
   const group: any = {};
 
   const questions = formObj.getAllQuestions();

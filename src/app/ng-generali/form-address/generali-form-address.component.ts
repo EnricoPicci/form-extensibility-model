@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { Action } from 'src/app/ts-dynamic-form/actions/action';
-import { DynamicForm } from 'src/app/ts-dynamic-form/form';
+import { DynamicFormLayout } from 'src/app/ts-dynamic-form/form';
 import { getGeneraliAddressForm } from 'src/app/ts-generali/form-address/form-address.form';
 
 @Component({
@@ -10,7 +10,7 @@ import { getGeneraliAddressForm } from 'src/app/ts-generali/form-address/form-ad
   styleUrls: ['./generali-form-address.component.css'],
 })
 export class GeneraliFormAddressComponent {
-  form!: DynamicForm;
+  form!: DynamicFormLayout;
   title = 'Generali Address Form';
 
   constructor() {}

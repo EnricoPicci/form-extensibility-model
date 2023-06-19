@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { DynamicForm } from 'src/app/ts-dynamic-form/form';
+import { DynamicFormLayout } from 'src/app/ts-dynamic-form/form';
 import { getProductAddressForm } from 'src/app/ts-product/form-address/form-address.form';
 
 @Component({
@@ -9,7 +9,7 @@ import { getProductAddressForm } from 'src/app/ts-product/form-address/form-addr
   styleUrls: ['./product-form-address.component.css'],
 })
 export class ProductFormAddressComponent {
-  form!: DynamicForm;
+  form!: DynamicFormLayout;
   title = 'Product Address Form';
 
   constructor() {}

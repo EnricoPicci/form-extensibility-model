@@ -1,13 +1,13 @@
 import { Section } from 'src/app/ts-dynamic-form/section';
 import { Action } from 'src/app/ts-dynamic-form/actions/action';
-import { DynamicForm } from 'src/app/ts-dynamic-form/form';
+import { DynamicFormLayout } from 'src/app/ts-dynamic-form/form';
 import { DropdownQuestion } from 'src/app/ts-dynamic-form/questions/question-dropdown';
 import { TextboxQuestion } from 'src/app/ts-dynamic-form/questions/question-textbox';
 
 import { productSave } from './form-identification-data.actions';
 
 export function getProductIdentificationDataForm() {
-  const productAddressForm = new DynamicForm({
+  const productAddressForm = new DynamicFormLayout({
     title: 'Product Identification Data',
     elements: [
       new Section({

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { DynamicForm } from 'src/app/ts-dynamic-form/form';
+import { DynamicFormLayout } from 'src/app/ts-dynamic-form/form';
 import { getGeneraliIdentificationDataForm } from 'src/app/ts-generali/form-identification-data/form-identification-data.form';
 
 @Component({
@@ -9,7 +9,7 @@ import { getGeneraliIdentificationDataForm } from 'src/app/ts-generali/form-iden
   styleUrls: ['./generali-form-identification-data.component.css'],
 })
 export class GeneraliFormIdentificationDataComponent {
-  form!: DynamicForm;
+  form!: DynamicFormLayout;
   title = 'Generali Identification Data Form';
 
   constructor() {}

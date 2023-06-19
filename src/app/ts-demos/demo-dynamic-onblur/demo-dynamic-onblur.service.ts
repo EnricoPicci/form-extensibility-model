@@ -1,8 +1,8 @@
-import { DynamicForm } from 'src/app/ts-dynamic-form/form';
+import { DynamicFormLayout } from 'src/app/ts-dynamic-form/form';
 import { FormService } from 'src/app/ts-dynamic-form/state/form-service';
 
 export class DemoDynamicOnblurService extends FormService {
-  enablePlate(formObj: DynamicForm, formGroupValue: any) {
+  enablePlate(formObj: DynamicFormLayout, formGroupValue: any) {
     const carBrand = formGroupValue.carBrand;
     const plateQuestion = formObj.getUniqueQuestion('plate');
 

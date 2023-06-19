@@ -1,7 +1,7 @@
 import { TextboxQuestion } from 'src/app/ts-dynamic-form/questions/question-textbox';
 import { Section } from 'src/app/ts-dynamic-form/section';
 import { Action } from 'src/app/ts-dynamic-form/actions/action';
-import { DynamicForm } from 'src/app/ts-dynamic-form/form';
+import { DynamicFormLayout } from 'src/app/ts-dynamic-form/form';
 
 import {
   productSaveAddress,
@@ -9,7 +9,7 @@ import {
 } from './form-address.actions';
 
 export function getProductAddressForm() {
-  const productAddressForm = new DynamicForm({
+  const productAddressForm = new DynamicFormLayout({
     title: 'Product Address',
     elements: [
       new Section({
