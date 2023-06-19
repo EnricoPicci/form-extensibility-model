@@ -10,10 +10,16 @@ export function getEnableDriverName(formObj: DynamicFormLayout) {
   return (
     formGroupValue: any,
     stateService: StateService,
+    dynamicFormService: DynamicFormService,
     dialogueService: DialogueFormService,
     event: any
   ) => {
     const _service = dialogueService as DemoDynamicValidationCallService;
-    _service.enableDriverName(formGroupValue, formObj);
+    _service.enableDriverName(
+      formGroupValue,
+      formObj,
+      stateService,
+      dynamicFormService
+    );
   };
 }

@@ -10,6 +10,7 @@ export type TextboxQuestionOptions = QuestionBaseOptions<string> & {
   onBlurHandler?: (
     formGroupValue: any,
     stateService: StateService,
+    dynamicFormService: DynamicFormService,
     dialogueFormService: DialogueFormService,
     event?: any
   ) => void;
@@ -21,6 +22,7 @@ export class TextboxQuestion extends QuestionBase<string> {
   onBlurHandler?: (
     formGroupValue: any,
     stateService: StateService,
+    dynamicFormService: DynamicFormService,
     dialogueFormService: DialogueFormService,
     event: any
   ) => void;

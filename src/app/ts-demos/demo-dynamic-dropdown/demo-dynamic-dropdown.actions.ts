@@ -10,10 +10,16 @@ export function getFillCity(formObj: DynamicFormLayout) {
   return (
     formGroupValue: any,
     stateService: StateService,
+    dynamicFormService: DynamicFormService,
     dialogueService: DialogueFormService,
     event: any
   ) => {
     const _service = dialogueService as DemoDynamicDropdownService;
-    _service.fillCity(formGroupValue, formObj);
+    _service.fillCity(
+      formGroupValue,
+      formObj,
+      stateService,
+      dynamicFormService
+    );
   };
 }

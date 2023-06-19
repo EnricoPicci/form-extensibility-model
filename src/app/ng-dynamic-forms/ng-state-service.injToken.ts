@@ -1,4 +1,4 @@
-import { InjectionToken } from '@angular/core';
+/* import { InjectionToken } from '@angular/core';
 
 import {
   STATE_SERVICE,
@@ -10,4 +10,4 @@ export const STATE_SERVICE_INJ_TOKEN = new InjectionToken<StateService>(
   {
     factory: () => STATE_SERVICE,
   }
-);
+); */

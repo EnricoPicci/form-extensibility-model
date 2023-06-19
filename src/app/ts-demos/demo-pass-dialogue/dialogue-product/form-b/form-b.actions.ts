@@ -10,6 +10,7 @@ export function getNext(formObj: DynamicFormLayout) {
   return (
     formGroupValue: any,
     stateService: StateService,
+    dynamicFormService: DynamicFormService,
     dialogueService: DialogueFormService,
     event: any
   ) => {
@@ -17,7 +18,12 @@ export function getNext(formObj: DynamicFormLayout) {
     // here is the logic to implement
     // call the form service appropriate method
     const _service = dialogueService as Dialogue_ProductService;
-    _service.next(formGroupValue, 'dialogue-product/form-c');
+    _service.next(
+      formGroupValue,
+      'dialogue-product/form-c',
+      stateService,
+      dynamicFormService
+    );
   };
 }
 
@@ -25,6 +31,7 @@ export function getPrevious(formObj: DynamicFormLayout) {
   return (
     formGroupValue: any,
     stateService: StateService,
+    dynamicFormService: DynamicFormService,
     dialogueService: DialogueFormService,
     event: any
   ) => {
@@ -32,7 +39,12 @@ export function getPrevious(formObj: DynamicFormLayout) {
     // here is the logic to implement
     // call the form service appropriate method
     const _service = dialogueService as Dialogue_ProductService;
-    _service.next(formGroupValue, 'dialogue-product/form-a');
+    _service.next(
+      formGroupValue,
+      'dialogue-product/form-a',
+      stateService,
+      dynamicFormService
+    );
   };
 }
 
@@ -40,6 +52,7 @@ export function getTransitFrom_B_to_C(formObj: DynamicFormLayout) {
   return (
     formGroupValue: any,
     stateService: StateService,
+    dynamicFormService: DynamicFormService,
     dialogueService: DialogueFormService,
     event: any
   ) => {
@@ -47,6 +60,6 @@ export function getTransitFrom_B_to_C(formObj: DynamicFormLayout) {
     // here is the logic to implement
     // call the form service appropriate method
     const _service = dialogueService as Dialogue_ProductService;
-    _service.transitFrom_B_to_C(formGroupValue);
+    _service.transitFrom_B_to_C(formGroupValue, dynamicFormService);
   };
 }

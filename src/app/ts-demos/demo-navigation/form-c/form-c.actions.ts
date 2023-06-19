@@ -11,6 +11,7 @@ export function getPrevious(formObj: DynamicFormLayout) {
   return (
     formGroupValue: any,
     stateService: StateService,
+    dynamicFormService: DynamicFormService,
     dialogueService: DialogueFormService,
     event: any
   ) => {
@@ -18,7 +19,12 @@ export function getPrevious(formObj: DynamicFormLayout) {
     // here is the logic to implement
     // call the form service appropriate method
     const _service = dialogueService as DemoDynamicNavigationService;
-    _service.next(formGroupValue, 'navigation/form-b');
+    _service.next(
+      formGroupValue,
+      'navigation/form-b',
+      stateService,
+      dynamicFormService
+    );
   };
 }
 
@@ -26,6 +32,7 @@ export function getSave(formObj: DynamicFormLayout) {
   return (
     formGroupValue: any,
     stateService: StateService,
+    dynamicFormService: DynamicFormService,
     dialogueService: DialogueFormService,
     event: any
   ) => {
@@ -33,6 +40,6 @@ export function getSave(formObj: DynamicFormLayout) {
     // here is the logic to implement
     // call the form service appropriate method
     const _service = dialogueService as DemoDynamicNavigationService;
-    _service.save(formGroupValue);
+    _service.save(formGroupValue, stateService, dynamicFormService);
   };
 }

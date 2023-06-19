@@ -18,6 +18,7 @@ export type QuestionBaseOptions<T> = {
   onChangeHandler?: (
     formGroupValue: any,
     stateService: StateService,
+    dynamicFormService: DynamicFormService,
     dialogueFormService: DialogueFormService,
     event?: any
   ) => void;
@@ -34,6 +35,7 @@ export abstract class QuestionBase<T> extends DynamicFormElement {
   onChangeHandler?: (
     formGroupValue: any,
     stateService: StateService,
+    dynamicFormService: DynamicFormService,
     dialogueFormService: DialogueFormService,
     event?: any
   ) => void;

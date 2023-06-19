@@ -10,10 +10,16 @@ export function getEnableVat(formObj: DynamicFormLayout) {
   return (
     formGroupValue: any,
     stateService: StateService,
+    dynamicFormService: DynamicFormService,
     dialogueService: DialogueFormService,
     event: any
   ) => {
     const _service = dialogueService as DemoDynamicCheckboxService;
-    _service.enableVat(formGroupValue, formObj);
+    _service.enableVat(
+      formGroupValue,
+      formObj,
+      stateService,
+      dynamicFormService
+    );
   };
 }

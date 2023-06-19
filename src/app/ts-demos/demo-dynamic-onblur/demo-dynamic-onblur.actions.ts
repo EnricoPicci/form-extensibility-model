@@ -10,10 +10,16 @@ export function getEnablePlate(formObj: DynamicFormLayout) {
   return (
     formGroupValue: any,
     stateService: StateService,
+    dynamicFormService: DynamicFormService,
     dialogueService: DialogueFormService,
     event: any
   ) => {
     const _service = dialogueService as DemoDynamicOnblurService;
-    _service.enablePlate(formObj, formGroupValue);
+    _service.enablePlate(
+      formObj,
+      formGroupValue,
+      stateService,
+      dynamicFormService
+    );
   };
 }

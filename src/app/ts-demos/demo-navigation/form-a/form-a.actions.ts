@@ -10,6 +10,7 @@ export function getNext(formObj: DynamicFormLayout) {
   return (
     formGroupValue: any,
     stateService: StateService,
+    dynamicFormService: DynamicFormService,
     dialogueService: DialogueFormService,
     event: any
   ) => {
@@ -17,6 +18,11 @@ export function getNext(formObj: DynamicFormLayout) {
     // here is the logic to implement
     // call the form service appropriate method
     const _service = dialogueService as DemoDynamicNavigationService;
-    _service.next(formGroupValue, 'navigation/form-b');
+    _service.next(
+      formGroupValue,
+      'navigation/form-b',
+      stateService,
+      dynamicFormService
+    );
   };
 }

@@ -13,5 +13,3 @@ export class StateService {
     this._formValue = value;
   }
 }
-
-export const STATE_SERVICE = new StateService();

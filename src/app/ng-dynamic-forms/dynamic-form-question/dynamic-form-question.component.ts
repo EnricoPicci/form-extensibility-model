@@ -88,6 +88,7 @@ export class DynamicFormQuestionComponent implements OnInit {
       question.onChangeHandler(
         this.form.value,
         this.stateService,
+        this.dynamicFormService,
         this.dialogueFormService,
         event
       );
@@ -101,6 +102,7 @@ export class DynamicFormQuestionComponent implements OnInit {
       textQuestion.onBlurHandler(
         this.form.value,
         this.stateService,
+        this.dynamicFormService,
         this.dialogueFormService,
         event
       );
@@ -113,6 +115,7 @@ export class DynamicFormQuestionComponent implements OnInit {
       dropDownQuestion.onChangeHandler(
         this.form.value,
         this.stateService,
+        this.dynamicFormService,
         this.dialogueFormService,
         event
       );

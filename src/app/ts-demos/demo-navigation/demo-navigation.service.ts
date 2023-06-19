@@ -1,19 +1,28 @@
 import { of, tap } from 'rxjs';
 import { DynamicFormService } from 'src/app/ts-dynamic-form/services/form-service';
-import { STATE_SERVICE } from 'src/app/ts-dynamic-form/services/state-service';
+import { StateService } from 'src/app/ts-dynamic-form/services/state-service';
 
-export class DemoDynamicNavigationService extends DynamicFormService {
-  next(formGroupValue: any, nextRoute: string) {
-    const storedFormVal = STATE_SERVICE.formValue;
+export class DemoDynamicNavigationService {
+  next(
+    formGroupValue: any,
+    nextRoute: string,
+    stateService: StateService,
+    dynamicFormService: DynamicFormService
+  ) {
+    const storedFormVal = stateService.formValue;
     if (storedFormVal) {
       formGroupValue = { ...storedFormVal, ...formGroupValue };
     }
-    STATE_SERVICE.formValue = formGroupValue;
-    this.nextRoute(nextRoute);
+    stateService.formValue = formGroupValue;
+    dynamicFormService.nextRoute(nextRoute);
   }
 
-  save(formGroupValue: any) {
-    const storedFormVal = STATE_SERVICE.formValue;
+  save(
+    formGroupValue: any,
+    stateService: StateService,
+    dynamicFormService: DynamicFormService
+  ) {
+    const storedFormVal = stateService.formValue;
     if (storedFormVal) {
       formGroupValue = {
         ...storedFormVal,
@@ -25,10 +34,12 @@ export class DemoDynamicNavigationService extends DynamicFormService {
     of(formGroupValue)
       .pipe(
         tap((formValue) => {
-          this.setMessage(`Form saved: ${JSON.stringify(formGroupValue)}`);
-          STATE_SERVICE.formValue = {};
+          dynamicFormService.setMessage(
+            `Form saved: ${JSON.stringify(formGroupValue)}`
+          );
+          stateService.formValue = {};
           // go back to the first form
-          this.nextRoute('navigation/');
+          dynamicFormService.nextRoute('navigation/');
         })
       )
       .subscribe();

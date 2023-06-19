@@ -1,7 +1,11 @@
+import { DynamicFormService } from 'src/app/ts-dynamic-form/services/form-service';
 import { Dialogue_ProductService } from '../dialogue-product/dialogue-product.service';
 
 export class Dialogue_Product_Spain_Service extends Dialogue_ProductService {
-  transitFrom_B_to_C_Spain(formGroupValue: any) {
+  transitFrom_B_to_C_Spain(
+    formGroupValue: any,
+    dynamicFormService: DynamicFormService
+  ) {
     const errors: { errorMsg: string }[] = [];
     // first call the validation logic defined at the Product layer
     let err = this.validateTransitionFrom_B_to_C(formGroupValue);
@@ -16,11 +20,11 @@ export class Dialogue_Product_Spain_Service extends Dialogue_ProductService {
 
     // if errors are encountered, error messages are notified
     if (errors.length > 0) {
-      this.setMessage(errors.join('\n'));
+      dynamicFormService.setMessage(errors.join('\n'));
       return;
     }
     // if there are no errors than we can go to the next step
-    this.next(formGroupValue, 'dialogue-product/form-c');
+    dynamicFormService.nextRoute('dialogue-product/form-c');
     return;
   }
 
