@@ -2,7 +2,7 @@ import { DynamicFormLayout as DynamicFormLayout } from 'src/app/ts-dynamic-form/
 
 import { TextboxQuestion } from 'src/app/ts-dynamic-form/questions/question-textbox';
 import { Action } from 'src/app/ts-dynamic-form/actions/action';
-import { getNext, getPrevious } from './form-b.actions';
+import { getPrevious, getTransitFrom_B_to_C } from './form-b.actions';
 
 export function get_Form_B_Layout() {
   const formObj = new DynamicFormLayout({
@@ -14,13 +14,12 @@ export function get_Form_B_Layout() {
       key: 'field-B-Product',
       label: 'Field-B-Product',
       value: '',
-      required: true,
       order: 1,
     }),
 
     new Action({
       name: 'Next',
-      function: getNext(formObj),
+      function: getTransitFrom_B_to_C(formObj),
       order: 2,
     }),
     new Action({
