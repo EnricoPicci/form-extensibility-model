@@ -1,12 +1,16 @@
-import { FormService } from '../state/form-service';
+import {
+  DialogueFormService,
+  DynamicFormService,
+} from '../services/form-service';
 import { DynamicFormElement, DynamicFormElementType } from '../form';
+import { StateService } from '../services/state-service';
 
 export class Action extends DynamicFormElement {
   name: string;
   function: (
     formGroupValue: any,
-
-    formService: FormService,
+    stateService: StateService,
+    dialogueFormService: DialogueFormService,
     event?: any
   ) => void;
   id: string | undefined;
@@ -17,8 +21,8 @@ export class Action extends DynamicFormElement {
     name: string;
     function: (
       formGroupValue: any,
-
-      formService: FormService,
+      stateService: StateService,
+      dialogueFormService: DialogueFormService,
       event?: any
     ) => void;
     order: number;

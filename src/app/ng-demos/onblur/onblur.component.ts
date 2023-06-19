@@ -12,7 +12,7 @@ export class OnblurComponent {
   form!: DynamicFormLayout;
   title = 'Dynamic Onblur Form';
 
-  constructor(public formService: DemoDynamicOnblurService) {}
+  constructor(public dialogueFormService: DemoDynamicOnblurService) {}
 
   ngOnInit(): void {
     this.form = getDynamicOnblurForm();

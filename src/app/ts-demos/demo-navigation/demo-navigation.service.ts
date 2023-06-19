@@ -1,18 +1,19 @@
 import { of, tap } from 'rxjs';
-import { FormService } from 'src/app/ts-dynamic-form/state/form-service';
+import { DynamicFormService } from 'src/app/ts-dynamic-form/services/form-service';
+import { STATE_SERVICE } from 'src/app/ts-dynamic-form/services/state-service';
 
-export class DemoDynamicNavigationService extends FormService {
+export class DemoDynamicNavigationService extends DynamicFormService {
   next(formGroupValue: any, nextRoute: string) {
-    const storedFormVal = this.formValue;
+    const storedFormVal = STATE_SERVICE.formValue;
     if (storedFormVal) {
       formGroupValue = { ...storedFormVal, ...formGroupValue };
     }
-    this.formValue = formGroupValue;
+    STATE_SERVICE.formValue = formGroupValue;
     this.nextRoute(nextRoute);
   }
 
   save(formGroupValue: any) {
-    const storedFormVal = this.formValue;
+    const storedFormVal = STATE_SERVICE.formValue;
     if (storedFormVal) {
       formGroupValue = {
         ...storedFormVal,
@@ -25,7 +26,7 @@ export class DemoDynamicNavigationService extends FormService {
       .pipe(
         tap((formValue) => {
           this.setMessage(`Form saved: ${JSON.stringify(formGroupValue)}`);
-          this.formValue = {};
+          STATE_SERVICE.formValue = {};
           // go back to the first form
           this.nextRoute('navigation/');
         })

@@ -1,8 +1,9 @@
 import { DynamicFormLayout } from 'src/app/ts-dynamic-form/form';
 import { DropdownQuestion } from 'src/app/ts-dynamic-form/questions/question-dropdown';
-import { FormService } from 'src/app/ts-dynamic-form/state/form-service';
+import { DynamicFormService } from 'src/app/ts-dynamic-form/services/form-service';
+import { STATE_SERVICE } from 'src/app/ts-dynamic-form/services/state-service';
 
-export class DemoDynamicDropdownService extends FormService {
+export class DemoDynamicDropdownService extends DynamicFormService {
   fillCity(formGroupValue: any, formObj: DynamicFormLayout) {
     const country = formGroupValue.country;
     const city = formObj.getUniqueQuestion('city') as DropdownQuestion<string>;
@@ -10,7 +11,7 @@ export class DemoDynamicDropdownService extends FormService {
     formGroupValue.city = null;
     // here the value of the object represented by the form changes and therefore suche value neeeds to be
     // brodcaseted via the state service
-    this.formValue = formGroupValue;
+    STATE_SERVICE.formValue = formGroupValue;
 
     // here we change the options of the city question
     if (country === 'italy') {

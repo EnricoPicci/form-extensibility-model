@@ -12,7 +12,7 @@ export class DropdownComponent {
   form!: DynamicFormLayout;
   title = 'Dynamic Dropdown Form';
 
-  constructor(public formService: DemoDynamicDropdownService) {}
+  constructor(public dialogueFormService: DemoDynamicDropdownService) {}
 
   ngOnInit(): void {
     this.form = getDynamicDropdownForm();

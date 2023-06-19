@@ -12,7 +12,7 @@ export class ValidationCallComponent {
   form!: DynamicFormLayout;
   title = 'Dynamic Validation Call Form';
 
-  constructor(public formService: DemoDynamicValidationCallService) {}
+  constructor(public dialogueFormService: DemoDynamicValidationCallService) {}
 
   ngOnInit(): void {
     this.form = getDynamicValidationForm();

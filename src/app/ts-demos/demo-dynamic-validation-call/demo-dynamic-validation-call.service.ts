@@ -1,9 +1,10 @@
 import { of, tap } from 'rxjs';
 import { DynamicFormLayout } from 'src/app/ts-dynamic-form/form';
-import { FormService } from 'src/app/ts-dynamic-form/state/form-service';
+import { DynamicFormService } from 'src/app/ts-dynamic-form/services/form-service';
 import { getRemoteServer } from './remote-server/remote-server';
+import { STATE_SERVICE } from 'src/app/ts-dynamic-form/services/state-service';
 
-export class DemoDynamicValidationCallService extends FormService {
+export class DemoDynamicValidationCallService extends DynamicFormService {
   enableDriverName(formGroupValue: any, formObj: DynamicFormLayout) {
     const plate = formGroupValue.plate;
 
@@ -23,7 +24,7 @@ export class DemoDynamicValidationCallService extends FormService {
           formGroupValue.driverName = drivernameQuestion.enabled
             ? formGroupValue.driverName
             : '';
-          this.formValue = formGroupValue;
+          STATE_SERVICE.formValue = formGroupValue;
         })
       )
       .subscribe();

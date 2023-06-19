@@ -1,4 +1,4 @@
-import { FormService } from 'src/app/ts-dynamic-form/state/form-service';
+import { DynamicFormService } from 'src/app/ts-dynamic-form/services/form-service';
 import { QuestionBase, QuestionBaseOptions } from './question-base';
 
 export type DropdownQuestionOptions<T> = QuestionBaseOptions<string> & {

@@ -12,7 +12,7 @@ export class FormBSpainComponent {
   form!: DynamicFormLayout;
   title = 'Product Form B Spain';
 
-  constructor(public formService: Dialogue_Product_Spain_Service) {}
+  constructor(public dialogueFormService: Dialogue_Product_Spain_Service) {}
 
   ngOnInit(): void {
     this.form = getFormXSpainLayout();

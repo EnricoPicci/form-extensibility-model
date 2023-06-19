@@ -1,10 +1,19 @@
 import { DynamicFormLayout } from 'src/app/ts-dynamic-form/form';
-import { FormService } from 'src/app/ts-dynamic-form/state/form-service';
+import {
+  DialogueFormService,
+  DynamicFormService,
+} from 'src/app/ts-dynamic-form/services/form-service';
 import { DemoDynamicOnblurService } from './demo-dynamic-onblur.service';
+import { StateService } from 'src/app/ts-dynamic-form/services/state-service';
 
 export function getEnablePlate(formObj: DynamicFormLayout) {
-  return (formGroupValue: any, service: FormService, event?: any) => {
-    const _service = service as DemoDynamicOnblurService;
+  return (
+    formGroupValue: any,
+    stateService: StateService,
+    dialogueService: DialogueFormService,
+    event: any
+  ) => {
+    const _service = dialogueService as DemoDynamicOnblurService;
     _service.enablePlate(formObj, formGroupValue);
   };
 }

@@ -7,20 +7,27 @@
           *ngSwitchCase="'Section'"
           [section]="asSection(element)"
           [form]="form"
-          [formService]="formService"
+          [dialogueFormService]="dialogueFormService"
         ></app-dynamic-form-section>
 
         <app-question
           *ngSwitchCase="'Question'"
           [question]="asQuestion(element)"
           [form]="form"
-          [formService]="formService"
+          [dialogueFormService]="dialogueFormService"
         ></app-question>
 
         <button
           *ngSwitchCase="'Action'"
           [disabled]="!form.valid"
-          (click)="asAction(element).function(form.value, formService)"
+          (click)="
+            asAction(element).function(
+              form.value,
+              stateService,
+              dialogueFormService,
+              $event
+            )
+          "
         >
           {{ asAction(element).name }}
         </button>
@@ -29,7 +36,7 @@
   </form>
 
   <div class="form-row">
-    <strong>{{ formService.message$ | async }}</strong
+    <strong>{{ dynamicFormService.message$ | async }}</strong
     ><br />
   </div>
 </div>

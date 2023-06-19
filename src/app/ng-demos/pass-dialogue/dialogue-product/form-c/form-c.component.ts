@@ -12,7 +12,7 @@ export class FormCComponent {
   form!: DynamicFormLayout;
   title = 'Product Form C';
 
-  constructor(public formService: Dialogue_ProductService) {}
+  constructor(public dialogueFormService: Dialogue_ProductService) {}
 
   ngOnInit(): void {
     this.form = get_Form_C_Layout();

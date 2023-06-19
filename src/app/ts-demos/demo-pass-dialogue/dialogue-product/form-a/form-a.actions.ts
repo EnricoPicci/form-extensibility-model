@@ -1,13 +1,22 @@
 import { DynamicFormLayout } from 'src/app/ts-dynamic-form/form';
-import { FormService } from 'src/app/ts-dynamic-form/state/form-service';
+import {
+  DialogueFormService,
+  DynamicFormService,
+} from 'src/app/ts-dynamic-form/services/form-service';
 import { Dialogue_ProductService } from '../dialogue-product.service';
+import { StateService } from 'src/app/ts-dynamic-form/services/state-service';
 
 export function getNext(formObj: DynamicFormLayout) {
-  return (formGroupValue: any, formService: FormService, event?: any) => {
+  return (
+    formGroupValue: any,
+    stateService: StateService,
+    dialogueService: DialogueFormService,
+    event: any
+  ) => {
     //
     // here is the logic to implement
     // call the form service appropriate method
-    const _service = formService as Dialogue_ProductService;
+    const _service = dialogueService as Dialogue_ProductService;
     _service.next(formGroupValue, 'dialogue-product/form-b');
   };
 }

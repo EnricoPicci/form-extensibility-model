@@ -12,7 +12,7 @@ export class CheckboxComponent {
   form!: DynamicFormLayout;
   title = 'Dynamic Checkbox Form';
 
-  constructor(public formService: DemoDynamicCheckboxService) {}
+  constructor(public dialogueFormService: DemoDynamicCheckboxService) {}
 
   ngOnInit(): void {
     this.form = getDynamicCheckboxForm();

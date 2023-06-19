@@ -5,9 +5,13 @@ import { Router } from '@angular/router';
 import { merge, tap } from 'rxjs';
 
 import { QuestionBase } from '../../ts-dynamic-form/questions/question-base';
-import { FormService } from 'src/app/ts-dynamic-form/state/form-service';
+import {
+  DynamicFormService,
+  DialogueFormService,
+} from 'src/app/ts-dynamic-form/services/form-service';
 import { DropdownQuestion } from 'src/app/ts-dynamic-form/questions/question-dropdown';
 import { TextboxQuestion } from 'src/app/ts-dynamic-form/questions/question-textbox';
+import { StateService } from 'src/app/ts-dynamic-form/services/state-service';
 
 @Component({
   selector: 'app-question',
@@ -17,12 +21,16 @@ import { TextboxQuestion } from 'src/app/ts-dynamic-form/questions/question-text
 export class DynamicFormQuestionComponent implements OnInit {
   @Input() question!: QuestionBase<any>;
   @Input() form!: FormGroup;
-  @Input() formService!: FormService;
+  @Input() dialogueFormService!: DialogueFormService;
 
-  constructor(private router: Router) {}
+  constructor(
+    private stateService: StateService,
+    private dynamicFormService: DynamicFormService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.formService.formLayout$
+    this.dynamicFormService.formLayout$
       .pipe(
         tap((formLayout) => {
           const control = this.form.controls[this.question.key];
@@ -36,7 +44,7 @@ export class DynamicFormQuestionComponent implements OnInit {
       )
       .subscribe();
 
-    this.formService.formValue$
+    this.stateService.formValue$
       .pipe(
         tap((formValue) => {
           const val = formValue[this.question.key];
@@ -50,7 +58,7 @@ export class DynamicFormQuestionComponent implements OnInit {
       )
       .subscribe();
 
-    this.formService.nextRoute$
+    this.dynamicFormService.nextRoute$
       .pipe(
         tap((nextRoute) => {
           this.router.navigate([nextRoute]);
@@ -77,7 +85,12 @@ export class DynamicFormQuestionComponent implements OnInit {
   onChange(event: any) {
     const question = this.question;
     if (question.onChangeHandler) {
-      question.onChangeHandler(this.form.value, this.formService, event);
+      question.onChangeHandler(
+        this.form.value,
+        this.stateService,
+        this.dialogueFormService,
+        event
+      );
     }
   }
 
@@ -85,7 +98,12 @@ export class DynamicFormQuestionComponent implements OnInit {
     const textQuestion = this.question as TextboxQuestion;
 
     if (textQuestion.onBlurHandler) {
-      textQuestion.onBlurHandler(this.form.value, this.formService, event);
+      textQuestion.onBlurHandler(
+        this.form.value,
+        this.stateService,
+        this.dialogueFormService,
+        event
+      );
     }
   }
 
@@ -94,8 +112,8 @@ export class DynamicFormQuestionComponent implements OnInit {
     if (dropDownQuestion.onChangeHandler) {
       dropDownQuestion.onChangeHandler(
         this.form.value,
-
-        this.formService,
+        this.stateService,
+        this.dialogueFormService,
         event
       );
     }

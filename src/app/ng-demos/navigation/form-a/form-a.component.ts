@@ -13,7 +13,7 @@ export class FormAComponent {
   form!: DynamicFormLayout;
   title = 'Form A';
 
-  constructor(public formService: DemoDynamicNavigationService) {}
+  constructor(public dialogueFormService: DemoDynamicNavigationService) {}
 
   ngOnInit(): void {
     this.form = getDynamicForm_A();

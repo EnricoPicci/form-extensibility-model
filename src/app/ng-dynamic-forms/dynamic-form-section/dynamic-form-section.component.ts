@@ -4,7 +4,11 @@ import { Action } from 'src/app/ts-dynamic-form/actions/action';
 import { SectionElement } from 'src/app/ts-dynamic-form/form-element';
 import { QuestionBase } from 'src/app/ts-dynamic-form/questions/question-base';
 import { Section } from 'src/app/ts-dynamic-form/section';
-import { FormService } from 'src/app/ts-dynamic-form/state/form-service';
+import {
+  DynamicFormService,
+  DialogueFormService,
+} from 'src/app/ts-dynamic-form/services/form-service';
+import { StateService } from 'src/app/ts-dynamic-form/services/state-service';
 
 @Component({
   selector: 'app-dynamic-form-section',
@@ -14,9 +18,12 @@ import { FormService } from 'src/app/ts-dynamic-form/state/form-service';
 export class DynamicFormSectionComponent implements OnInit {
   @Input() section!: Section;
   @Input() form!: FormGroup;
-  @Input() formService!: FormService;
+  @Input() dialogueFormService!: DialogueFormService;
 
-  constructor() {}
+  constructor(
+    public stateService: StateService,
+    public dynamicFormService: DynamicFormService
+  ) {}
 
   elements!: SectionElement[];
 
