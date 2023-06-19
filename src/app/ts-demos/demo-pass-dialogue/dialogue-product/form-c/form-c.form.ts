@@ -5,11 +5,11 @@ import { Action } from 'src/app/ts-dynamic-form/actions/action';
 import { getPrevious, getSave } from './form-c.actions';
 
 export function get_Form_C_Layout() {
-  const formObj = new DynamicFormLayout({
-    title: 'Product Dialogue-1 Form B',
+  const formLayout = new DynamicFormLayout({
+    title: 'Product Dialogue Form B',
   });
 
-  formObj.elements = [
+  formLayout.elements = [
     new TextboxQuestion({
       key: 'field-C-Product',
       label: 'Field-C-Product',
@@ -20,15 +20,15 @@ export function get_Form_C_Layout() {
 
     new Action({
       name: 'Previous',
-      function: getPrevious(formObj),
+      function: getPrevious(formLayout),
       order: 3,
     }),
     new Action({
       name: 'Save',
-      function: getSave(formObj),
+      function: getSave(formLayout),
       order: 2,
     }),
   ];
 
-  return formObj;
+  return formLayout;
 }

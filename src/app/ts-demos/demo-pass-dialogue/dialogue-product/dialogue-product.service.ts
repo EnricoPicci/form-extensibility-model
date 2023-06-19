@@ -34,19 +34,27 @@ export class Dialogue_ProductService extends FormService {
   }
 
   transitFrom_B_to_C(formGroupValue: any) {
-    if (this.validateTransitionFrom_B_to_C(formGroupValue)) {
-      this.next(formGroupValue, 'dialogue-product/form-c');
+    const err = this.validateTransitionFrom_B_to_C(formGroupValue);
+    if (err) {
+      this.setMessage(err.errorMsg);
       return;
     }
-    this.setMessage(
-      'The value of the field "Field-B-Product" must be longer than 3 characters'
-    );
+    this.next(formGroupValue, 'dialogue-product/form-c');
+    return;
   }
 
-  // this method returns true if the value of the form is valid and the transition to the next step is allowed
+  // this method validates the content of the form and returns an error message if the form is not valid
+  // the validation logic is exposed as a public method so that it can be used by other layers (e.g. country or
+  // client specifc layers)
   validateTransitionFrom_B_to_C(formGroupValue: any) {
     const field_B_Product = formGroupValue['field-B-Product'];
     // the logic is that the field_B_Product must be longer than 3 characters
-    return field_B_Product && field_B_Product.length > 3;
+    if (field_B_Product && field_B_Product.length <= 3) {
+      return {
+        errorMsg:
+          'The value of the field "Field-B-Product" must be longer than 3 characters',
+      };
+    }
+    return null;
   }
 }

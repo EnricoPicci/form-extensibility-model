@@ -5,11 +5,11 @@ import { Action } from 'src/app/ts-dynamic-form/actions/action';
 import { getNext } from './form-a.actions';
 
 export function get_Form_A_Layout() {
-  const formObj = new DynamicFormLayout({
-    title: 'Product Dialogue-1 Form A',
+  const formLayout = new DynamicFormLayout({
+    title: 'Product Dialogue Form A',
   });
 
-  formObj.elements = [
+  formLayout.elements = [
     new TextboxQuestion({
       key: 'field-a-Product',
       label: 'Field-a-Product',
@@ -20,10 +20,10 @@ export function get_Form_A_Layout() {
 
     new Action({
       name: 'Next',
-      function: getNext(formObj),
+      function: getNext(formLayout),
       order: 2,
     }),
   ];
 
-  return formObj;
+  return formLayout;
 }
