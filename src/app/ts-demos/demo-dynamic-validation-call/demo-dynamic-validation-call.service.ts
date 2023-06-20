@@ -1,14 +1,13 @@
 import { of, tap } from 'rxjs';
 import { DynamicFormLayout } from 'src/app/ts-dynamic-form/form';
-import { DynamicFormService } from 'src/app/ts-dynamic-form/services/form-service';
+
 import { getRemoteServer } from './remote-server/remote-server';
-import { StateService } from 'src/app/ts-dynamic-form/services/state-service';
+import { FormStateService } from 'src/app/ts-dynamic-form/services/form-state-service';
 
 export function enableDriverName(
   formGroupValue: any,
   formObj: DynamicFormLayout,
-  stateService: StateService,
-  dynamicFormService: DynamicFormService,
+  stateService: FormStateService,
   event?: any
 ) {
   const plate = formGroupValue.plate;
@@ -23,7 +22,7 @@ export function enableDriverName(
         const drivernameQuestion = formObj.getUniqueQuestion('driverName');
 
         drivernameQuestion.enabled = enabled;
-        dynamicFormService.updateFormLayout(formObj);
+        stateService.updateFormLayout(formObj);
 
         // reset the value of driver name if driver name is disabled
         formGroupValue.driverName = drivernameQuestion.enabled

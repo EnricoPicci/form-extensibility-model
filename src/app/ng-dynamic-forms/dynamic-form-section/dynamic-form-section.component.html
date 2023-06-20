@@ -11,14 +11,7 @@
       <button
         *ngSwitchCase="'Action'"
         [disabled]="!form.valid"
-        (click)="
-          asAction(element).function(
-            form.value,
-            stateService,
-            dynamicFormService,
-            $event
-          )
-        "
+        (click)="asAction(element).function(form.value, stateService, $event)"
       >
         {{ asAction(element).name }}
       </button>

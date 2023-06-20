@@ -10,7 +10,7 @@ import {
 import { QuestionBase } from 'src/app/ts-dynamic-form/questions/question-base';
 import { Action } from 'src/app/ts-dynamic-form/actions/action';
 import { Section } from 'src/app/ts-dynamic-form/section';
-import { DynamicFormService } from 'src/app/ts-dynamic-form/services/form-service';
+
 import { NgStateService } from '../ng-state.service';
 
 @Component({
@@ -25,10 +25,7 @@ export class DynamicFormComponent implements OnInit {
   form!: FormGroup;
   elements: DynamicFormElement[] = [];
 
-  constructor(
-    public dynamicFormService: DynamicFormService,
-    public stateService: NgStateService
-  ) {}
+  constructor(public stateService: NgStateService) {}
 
   ngOnInit() {
     this.form = toFormGroup(this.formObj);

@@ -1,18 +1,17 @@
 import { DynamicFormLayout } from 'src/app/ts-dynamic-form/form';
-import { DynamicFormService } from 'src/app/ts-dynamic-form/services/form-service';
-import { StateService } from 'src/app/ts-dynamic-form/services/state-service';
+
+import { FormStateService } from 'src/app/ts-dynamic-form/services/form-state-service';
 
 export function enableVat(
   formGroupValue: any,
   formObj: DynamicFormLayout,
-  stateService: StateService,
-  dynamicFormService: DynamicFormService
+  stateService: FormStateService
 ) {
   const isBusiness = formGroupValue.business;
   const vat = formObj.getUniqueQuestion('vat');
 
   vat.enabled = isBusiness;
-  dynamicFormService.updateFormLayout(formObj);
+  stateService.updateFormLayout(formObj);
 
   formGroupValue.vat = isBusiness ? vat.value : ''; // reset the value of vat
   stateService.formValue = formGroupValue;

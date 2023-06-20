@@ -1,12 +1,11 @@
 import { of, tap } from 'rxjs';
-import { DynamicFormService } from 'src/app/ts-dynamic-form/services/form-service';
-import { StateService } from 'src/app/ts-dynamic-form/services/state-service';
+
+import { FormStateService } from 'src/app/ts-dynamic-form/services/form-state-service';
 
 export function next(
   formGroupValue: any,
   nextRoute: string,
-  stateService: StateService,
-  dynamicFormService: DynamicFormService
+  stateService: FormStateService
 ) {
   stateService.mergeIntoFormValue(formGroupValue);
   stateService.nextRoute(nextRoute);
@@ -15,8 +14,7 @@ export function next(
 export function save(
   formGroupValue: any,
   nextRouteIfSuccessfull: string,
-  stateService: StateService,
-  dynamicFormService: DynamicFormService
+  stateService: FormStateService
 ) {
   stateService.mergeIntoFormValue(formGroupValue);
 
@@ -35,7 +33,7 @@ export function save(
 
 export function transitFrom_B_to_C(
   formGroupValue: any,
-  stateService: StateService
+  stateService: FormStateService
 ) {
   const err = validateTransitionFrom_B_to_C(formGroupValue);
   if (err) {

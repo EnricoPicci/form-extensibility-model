@@ -1,13 +1,12 @@
 import { DynamicFormLayout } from 'src/app/ts-dynamic-form/form';
 import { DropdownQuestion } from 'src/app/ts-dynamic-form/questions/question-dropdown';
-import { DynamicFormService } from 'src/app/ts-dynamic-form/services/form-service';
-import { StateService } from 'src/app/ts-dynamic-form/services/state-service';
+
+import { FormStateService } from 'src/app/ts-dynamic-form/services/form-state-service';
 
 export function fillCity(
   formGroupValue: any,
   formObj: DynamicFormLayout,
-  stateService: StateService,
-  dynamicFormService: DynamicFormService
+  stateService: FormStateService
 ) {
   const country = formGroupValue.country;
   const city = formObj.getUniqueQuestion('city') as DropdownQuestion<string>;
@@ -29,5 +28,5 @@ export function fillCity(
       { key: 'lyon', value: 'Lyon' },
     ];
   }
-  dynamicFormService.updateFormLayout(formObj);
+  stateService.updateFormLayout(formObj);
 }

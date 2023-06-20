@@ -1,9 +1,9 @@
-import { StateService } from 'src/app/ts-dynamic-form/services/state-service';
+import { FormStateService } from 'src/app/ts-dynamic-form/services/form-state-service';
 import { validateTransitionFrom_B_to_C } from '../dialogue-product/dialogue-product.service';
 
 export function transitFrom_B_to_C_Spain(
   formGroupValue: any,
-  stateService: StateService
+  stateService: FormStateService
 ) {
   const errors: { errorMsg: string }[] = [];
   // first call the validation logic defined at the Product layer

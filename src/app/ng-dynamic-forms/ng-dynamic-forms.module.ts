@@ -4,7 +4,6 @@ import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 import { DynamicFormQuestionComponent } from './dynamic-form-question/dynamic-form-question.component';
 import { DynamicFormSectionComponent } from './dynamic-form-section/dynamic-form-section.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { DynamicFormService } from '../ts-dynamic-form/services/form-service';
 
 @NgModule({
   declarations: [
@@ -18,7 +17,5 @@ import { DynamicFormService } from '../ts-dynamic-form/services/form-service';
     DynamicFormQuestionComponent,
     DynamicFormSectionComponent,
   ],
-
-  providers: [DynamicFormService],
 })
 export class NgDynamicFormsModule {}

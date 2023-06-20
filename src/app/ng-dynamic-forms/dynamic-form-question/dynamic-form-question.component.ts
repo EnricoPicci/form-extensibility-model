@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { merge, tap } from 'rxjs';
 
 import { QuestionBase } from '../../ts-dynamic-form/questions/question-base';
-import { DynamicFormService } from 'src/app/ts-dynamic-form/services/form-service';
+
 import { DropdownQuestion } from 'src/app/ts-dynamic-form/questions/question-dropdown';
 import { TextboxQuestion } from 'src/app/ts-dynamic-form/questions/question-textbox';
 import { NgStateService } from '../ng-state.service';
@@ -19,14 +19,10 @@ export class DynamicFormQuestionComponent implements OnInit {
   @Input() question!: QuestionBase<any>;
   @Input() form!: FormGroup;
 
-  constructor(
-    private stateService: NgStateService,
-    private dynamicFormService: DynamicFormService,
-    private router: Router
-  ) {}
+  constructor(private stateService: NgStateService, private router: Router) {}
 
   ngOnInit(): void {
-    this.dynamicFormService.formLayout$
+    this.stateService.formLayout$
       .pipe(
         tap((formLayout) => {
           const control = this.form.controls[this.question.key];
@@ -81,12 +77,7 @@ export class DynamicFormQuestionComponent implements OnInit {
   onChange(event: any) {
     const question = this.question;
     if (question.onChangeHandler) {
-      question.onChangeHandler(
-        this.form.value,
-        this.stateService,
-        this.dynamicFormService,
-        event
-      );
+      question.onChangeHandler(this.form.value, this.stateService, event);
     }
   }
 
@@ -94,12 +85,7 @@ export class DynamicFormQuestionComponent implements OnInit {
     const textQuestion = this.question as TextboxQuestion;
 
     if (textQuestion.onBlurHandler) {
-      textQuestion.onBlurHandler(
-        this.form.value,
-        this.stateService,
-        this.dynamicFormService,
-        event
-      );
+      textQuestion.onBlurHandler(this.form.value, this.stateService, event);
     }
   }
 
@@ -109,7 +95,6 @@ export class DynamicFormQuestionComponent implements OnInit {
       dropDownQuestion.onChangeHandler(
         this.form.value,
         this.stateService,
-        this.dynamicFormService,
         event
       );
     }
