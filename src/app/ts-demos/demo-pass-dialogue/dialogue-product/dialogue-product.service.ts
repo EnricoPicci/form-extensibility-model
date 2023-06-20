@@ -9,12 +9,8 @@ export class Dialogue_ProductService {
     stateService: StateService,
     dynamicFormService: DynamicFormService
   ) {
-    const storedFormVal = stateService.formValue;
-    if (storedFormVal) {
-      formGroupValue = { ...storedFormVal, ...formGroupValue };
-    }
-    stateService.formValue = formGroupValue;
-    dynamicFormService.nextRoute(nextRoute);
+    stateService.mergeIntoFormValue(formGroupValue);
+    stateService.nextRoute(nextRoute);
   }
 
   save(
@@ -23,39 +19,29 @@ export class Dialogue_ProductService {
     stateService: StateService,
     dynamicFormService: DynamicFormService
   ) {
-    const storedFormVal = stateService.formValue;
-    if (storedFormVal) {
-      formGroupValue = {
-        ...storedFormVal,
-        ...formGroupValue,
-      };
-    }
+    stateService.mergeIntoFormValue(formGroupValue);
 
     // here we simulate to go to the server to save the form
-    of(formGroupValue)
+    of(stateService.formValue)
       .pipe(
         tap((formValue) => {
-          dynamicFormService.setMessage(
-            `Form saved: ${JSON.stringify(formGroupValue)}`
-          );
+          stateService.setMessage(`Form saved: ${JSON.stringify(formValue)}`);
           stateService.formValue = {};
           // go back to the first form
-          dynamicFormService.nextRoute(nextRouteIfSuccessfull);
+          stateService.nextRoute(nextRouteIfSuccessfull);
         })
       )
       .subscribe();
   }
 
-  transitFrom_B_to_C(
-    formGroupValue: any,
-    dynamicFormService: DynamicFormService
-  ) {
+  transitFrom_B_to_C(formGroupValue: any, stateService: StateService) {
     const err = this.validateTransitionFrom_B_to_C(formGroupValue);
     if (err) {
-      dynamicFormService.setMessage(err.errorMsg);
+      stateService.setMessage(err.errorMsg);
       return;
     }
-    dynamicFormService.nextRoute('dialogue-product/form-c');
+    stateService.mergeIntoFormValue(formGroupValue);
+    stateService.nextRoute('form-c');
     return;
   }
 

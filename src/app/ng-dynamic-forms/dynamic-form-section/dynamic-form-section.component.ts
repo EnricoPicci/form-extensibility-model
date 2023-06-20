@@ -8,7 +8,7 @@ import {
   DynamicFormService,
   DialogueFormService,
 } from 'src/app/ts-dynamic-form/services/form-service';
-import { StateService } from 'src/app/ts-dynamic-form/services/state-service';
+import { NgStateService } from '../ng-state.service';
 
 @Component({
   selector: 'app-dynamic-form-section',
@@ -21,7 +21,7 @@ export class DynamicFormSectionComponent implements OnInit {
   @Input() dialogueFormService!: DialogueFormService;
 
   constructor(
-    public stateService: StateService,
+    public stateService: NgStateService,
     public dynamicFormService: DynamicFormService
   ) {}
 

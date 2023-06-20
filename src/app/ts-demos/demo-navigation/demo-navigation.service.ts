@@ -14,7 +14,7 @@ export class DemoDynamicNavigationService {
       formGroupValue = { ...storedFormVal, ...formGroupValue };
     }
     stateService.formValue = formGroupValue;
-    dynamicFormService.nextRoute(nextRoute);
+    stateService.nextRoute(nextRoute);
   }
 
   save(
@@ -34,12 +34,12 @@ export class DemoDynamicNavigationService {
     of(formGroupValue)
       .pipe(
         tap((formValue) => {
-          dynamicFormService.setMessage(
+          stateService.setMessage(
             `Form saved: ${JSON.stringify(formGroupValue)}`
           );
           stateService.formValue = {};
           // go back to the first form
-          dynamicFormService.nextRoute('navigation/');
+          stateService.nextRoute('navigation/');
         })
       )
       .subscribe();

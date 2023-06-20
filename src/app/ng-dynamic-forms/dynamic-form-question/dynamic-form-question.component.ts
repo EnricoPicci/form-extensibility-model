@@ -11,7 +11,7 @@ import {
 } from 'src/app/ts-dynamic-form/services/form-service';
 import { DropdownQuestion } from 'src/app/ts-dynamic-form/questions/question-dropdown';
 import { TextboxQuestion } from 'src/app/ts-dynamic-form/questions/question-textbox';
-import { StateService } from 'src/app/ts-dynamic-form/services/state-service';
+import { NgStateService } from '../ng-state.service';
 
 @Component({
   selector: 'app-question',
@@ -24,7 +24,7 @@ export class DynamicFormQuestionComponent implements OnInit {
   @Input() dialogueFormService!: DialogueFormService;
 
   constructor(
-    private stateService: StateService,
+    private stateService: NgStateService,
     private dynamicFormService: DynamicFormService,
     private router: Router
   ) {}
@@ -58,7 +58,7 @@ export class DynamicFormQuestionComponent implements OnInit {
       )
       .subscribe();
 
-    this.dynamicFormService.nextRoute$
+    this.stateService.nextRoute$
       .pipe(
         tap((nextRoute) => {
           this.router.navigate([nextRoute]);

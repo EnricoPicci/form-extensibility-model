@@ -40,11 +40,6 @@ export function getSave(formObj: DynamicFormLayout) {
     // here is the logic to implement
     // call the form service appropriate method
     const _service = dialogueService as Dialogue_ProductService;
-    _service.save(
-      formGroupValue,
-      'dialogue-product/',
-      stateService,
-      dynamicFormService
-    );
+    _service.save(formGroupValue, 'form-a', stateService, dynamicFormService);
   };
 }

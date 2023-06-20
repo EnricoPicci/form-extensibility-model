@@ -17,7 +17,5 @@ export class DemoDynamicCheckboxService {
 
     formGroupValue.vat = isBusiness ? vat.value : ''; // reset the value of vat
     stateService.formValue = formGroupValue;
-
-    console.log('>>>>>>>>>>>>>>>>>>', isBusiness, formGroupValue);
   }
 }

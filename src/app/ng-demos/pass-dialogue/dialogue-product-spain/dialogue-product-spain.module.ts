@@ -6,9 +6,10 @@ import { FormBSpainComponent } from './form-b-spain/form-b-spain.component';
 import { Dialogue_Product_Spain_Service } from 'src/app/ts-demos/demo-pass-dialogue/dialogue-product-spain/dialogue-product-spain.service';
 import { NgDynamicFormsModule } from 'src/app/ng-dynamic-forms/ng-dynamic-forms.module';
 import { Dialogue_ProductService } from 'src/app/ts-demos/demo-pass-dialogue/dialogue-product/dialogue-product.service';
+import { ProductDialogueSpainComponent } from './dialogue-product-spain.component';
 
 @NgModule({
-  declarations: [FormBSpainComponent],
+  declarations: [ProductDialogueSpainComponent, FormBSpainComponent],
   imports: [
     CommonModule,
     DialogueProductSpainRoutingModule,

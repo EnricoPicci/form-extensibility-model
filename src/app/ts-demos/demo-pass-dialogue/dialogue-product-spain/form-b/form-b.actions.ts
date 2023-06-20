@@ -20,6 +20,6 @@ export function getTransitFrom_B_to_C_Spain(formObj: DynamicFormLayout) {
     // here is the logic to implement
     // call the form service appropriate method
     const _service = dialogueService as Dialogue_Product_Spain_Service;
-    _service.transitFrom_B_to_C_Spain(formGroupValue, dynamicFormService);
+    _service.transitFrom_B_to_C_Spain(formGroupValue, stateService);
   };
 }

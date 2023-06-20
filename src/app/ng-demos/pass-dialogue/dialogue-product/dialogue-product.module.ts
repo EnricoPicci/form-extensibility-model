@@ -7,9 +7,15 @@ import { FormAComponent } from './form-a/form-a.component';
 import { FormBComponent } from './form-b/form-b.component';
 import { FormCComponent } from './form-c/form-c.component';
 import { NgDynamicFormsModule } from 'src/app/ng-dynamic-forms/ng-dynamic-forms.module';
+import { ProductDialogueComponent } from './dialogue-product.component';
 
 @NgModule({
-  declarations: [FormAComponent, FormBComponent, FormCComponent],
+  declarations: [
+    ProductDialogueComponent,
+    FormAComponent,
+    FormBComponent,
+    FormCComponent,
+  ],
   imports: [CommonModule, DialogueProductRoutingModule, NgDynamicFormsModule],
   providers: [Dialogue_ProductService],
 })

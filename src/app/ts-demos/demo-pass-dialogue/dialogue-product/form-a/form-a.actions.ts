@@ -18,11 +18,6 @@ export function getNext(formObj: DynamicFormLayout) {
     // here is the logic to implement
     // call the form service appropriate method
     const _service = dialogueService as Dialogue_ProductService;
-    _service.next(
-      formGroupValue,
-      'dialogue-product/form-b',
-      stateService,
-      dynamicFormService
-    );
+    _service.next(formGroupValue, 'form-b', stateService, dynamicFormService);
   };
 }

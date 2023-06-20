@@ -14,7 +14,7 @@ import {
   DynamicFormService,
   DialogueFormService,
 } from 'src/app/ts-dynamic-form/services/form-service';
-import { StateService } from 'src/app/ts-dynamic-form/services/state-service';
+import { NgStateService } from '../ng-state.service';
 
 @Component({
   selector: 'app-dynamic-form',
@@ -31,7 +31,7 @@ export class DynamicFormComponent implements OnInit {
 
   constructor(
     public dynamicFormService: DynamicFormService,
-    public stateService: StateService
+    public stateService: NgStateService
   ) {}
 
   ngOnInit() {
@@ -39,7 +39,7 @@ export class DynamicFormComponent implements OnInit {
 
     this.elements = this.formObj.getElementsOrdered();
 
-    this.dynamicFormService.message$.subscribe((message) => {
+    this.stateService.message$.subscribe((message) => {
       console.log(`>>>>>>>>>>>>>> `, message);
     });
   }
