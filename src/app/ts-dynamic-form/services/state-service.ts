@@ -19,14 +19,14 @@ export class StateService {
   }
   public set formValue(value: any) {
     this._formValue = value;
-    this._formValue$.next(value);
+    this._formValue$.next(this._formValue);
   }
   public mergeIntoFormValue(value: any) {
     if (!this._formValue) {
       this._formValue = {};
     }
     this._formValue = { ...this._formValue, ...value };
-    this._formValue$.next(value);
+    this._formValue$.next(this._formValue);
   }
 
   public nextRoute(route: string) {

@@ -3,8 +3,8 @@ import {
   DialogueFormService,
   DynamicFormService,
 } from 'src/app/ts-dynamic-form/services/form-service';
-import { DemoDynamicValidationCallService } from './demo-dynamic-validation-call.service';
 import { StateService } from 'src/app/ts-dynamic-form/services/state-service';
+import { enableDriverName } from './demo-dynamic-validation-call.service';
 
 export function getEnableDriverName(formObj: DynamicFormLayout) {
   return (
@@ -14,12 +14,6 @@ export function getEnableDriverName(formObj: DynamicFormLayout) {
     dialogueService: DialogueFormService,
     event: any
   ) => {
-    const _service = dialogueService as DemoDynamicValidationCallService;
-    _service.enableDriverName(
-      formGroupValue,
-      formObj,
-      stateService,
-      dynamicFormService
-    );
+    enableDriverName(formGroupValue, formObj, stateService, dynamicFormService);
   };
 }

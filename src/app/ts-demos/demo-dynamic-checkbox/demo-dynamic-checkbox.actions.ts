@@ -3,10 +3,10 @@ import {
   DialogueFormService,
   DynamicFormService,
 } from 'src/app/ts-dynamic-form/services/form-service';
-import { DemoDynamicCheckboxService } from './demo-dynamic-checkbox.service';
 import { StateService } from 'src/app/ts-dynamic-form/services/state-service';
+import { enableVat } from './demo-dynamic-checkbox.service';
 
-export function getEnableVat(formObj: DynamicFormLayout) {
+export function getEnableVat(formLayout: DynamicFormLayout) {
   return (
     formGroupValue: any,
     stateService: StateService,
@@ -14,12 +14,6 @@ export function getEnableVat(formObj: DynamicFormLayout) {
     dialogueService: DialogueFormService,
     event: any
   ) => {
-    const _service = dialogueService as DemoDynamicCheckboxService;
-    _service.enableVat(
-      formGroupValue,
-      formObj,
-      stateService,
-      dynamicFormService
-    );
+    enableVat(formGroupValue, formLayout, stateService, dynamicFormService);
   };
 }

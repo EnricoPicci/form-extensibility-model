@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { getDynamicOnblurForm } from 'src/app/ts-demos/demo-dynamic-onblur/demo-dynamic-onblur.form';
-import { DemoDynamicOnblurService } from 'src/app/ts-demos/demo-dynamic-onblur/demo-dynamic-onblur.service';
 import { DynamicFormLayout } from 'src/app/ts-dynamic-form/form';
 
 @Component({
@@ -12,7 +11,7 @@ export class OnblurComponent {
   form!: DynamicFormLayout;
   title = 'Dynamic Onblur Form';
 
-  constructor(public dialogueFormService: DemoDynamicOnblurService) {}
+  constructor() {}
 
   ngOnInit(): void {
     this.form = getDynamicOnblurForm();

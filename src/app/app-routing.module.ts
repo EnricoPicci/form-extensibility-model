@@ -29,14 +29,19 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'navigation',
+    path: 'dialogue-product',
     loadChildren: () =>
-      import('./ng-demos/navigation/navigation.module').then(
-        (m) => m.NavigationModule
-      ),
+      import(
+        './ng-demos/pass-dialogue/dialogue-product/dialogue-product.module'
+      ).then((m) => m.DialogueProductModule),
   },
-  { path: 'dialogue-product', loadChildren: () => import('./ng-demos/pass-dialogue/dialogue-product/dialogue-product.module').then(m => m.DialogueProductModule) },
-  { path: 'dialogue-product-spain', loadChildren: () => import('./ng-demos/pass-dialogue/dialogue-product-spain/dialogue-product-spain.module').then(m => m.DialogueProductSpainModule) },
+  {
+    path: 'dialogue-product-spain',
+    loadChildren: () =>
+      import(
+        './ng-demos/pass-dialogue/dialogue-product-spain/dialogue-product-spain.module'
+      ).then((m) => m.DialogueProductSpainModule),
+  },
 ];
 
 @NgModule({

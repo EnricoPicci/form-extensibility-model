@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { getDynamicValidationForm } from 'src/app/ts-demos/demo-dynamic-validation-call/demo-dynamic-validation-call.form';
-import { DemoDynamicValidationCallService } from 'src/app/ts-demos/demo-dynamic-validation-call/demo-dynamic-validation-call.service';
 import { DynamicFormLayout } from 'src/app/ts-dynamic-form/form';
 
 @Component({
@@ -12,7 +11,7 @@ export class ValidationCallComponent {
   form!: DynamicFormLayout;
   title = 'Dynamic Validation Call Form';
 
-  constructor(public dialogueFormService: DemoDynamicValidationCallService) {}
+  constructor() {}
 
   ngOnInit(): void {
     this.form = getDynamicValidationForm();

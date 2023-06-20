@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { DynamicFormLayout } from 'src/app/ts-dynamic-form/form';
 import { getDynamicCheckboxForm } from 'src/app/ts-demos/demo-dynamic-checkbox/demo-dynamic-checkbox.form';
-import { DemoDynamicCheckboxService } from 'src/app/ts-demos/demo-dynamic-checkbox/demo-dynamic-checkbox.service';
 
 @Component({
   selector: 'app-checkbox',
@@ -12,7 +11,7 @@ export class CheckboxComponent {
   form!: DynamicFormLayout;
   title = 'Dynamic Checkbox Form';
 
-  constructor(public dialogueFormService: DemoDynamicCheckboxService) {}
+  constructor() {}
 
   ngOnInit(): void {
     this.form = getDynamicCheckboxForm();

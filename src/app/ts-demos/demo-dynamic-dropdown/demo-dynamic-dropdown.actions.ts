@@ -3,8 +3,8 @@ import {
   DialogueFormService,
   DynamicFormService,
 } from 'src/app/ts-dynamic-form/services/form-service';
-import { DemoDynamicDropdownService } from './demo-dynamic-dropdown.service';
 import { StateService } from 'src/app/ts-dynamic-form/services/state-service';
+import { fillCity } from './demo-dynamic-dropdown.service';
 
 export function getFillCity(formObj: DynamicFormLayout) {
   return (
@@ -14,12 +14,6 @@ export function getFillCity(formObj: DynamicFormLayout) {
     dialogueService: DialogueFormService,
     event: any
   ) => {
-    const _service = dialogueService as DemoDynamicDropdownService;
-    _service.fillCity(
-      formGroupValue,
-      formObj,
-      stateService,
-      dynamicFormService
-    );
+    fillCity(formGroupValue, formObj, stateService, dynamicFormService);
   };
 }

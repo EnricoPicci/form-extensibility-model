@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { getDynamicDropdownForm } from 'src/app/ts-demos/demo-dynamic-dropdown/demo-dynamic-dropdown.form';
-import { DemoDynamicDropdownService } from 'src/app/ts-demos/demo-dynamic-dropdown/demo-dynamic-dropdown.service';
 import { DynamicFormLayout } from 'src/app/ts-dynamic-form/form';
 
 @Component({
@@ -12,7 +11,7 @@ export class DropdownComponent {
   form!: DynamicFormLayout;
   title = 'Dynamic Dropdown Form';
 
-  constructor(public dialogueFormService: DemoDynamicDropdownService) {}
+  constructor() {}
 
   ngOnInit(): void {
     this.form = getDynamicDropdownForm();

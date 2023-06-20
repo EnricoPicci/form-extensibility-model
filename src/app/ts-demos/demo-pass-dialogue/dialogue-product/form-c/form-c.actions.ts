@@ -4,8 +4,8 @@ import {
   DialogueFormService,
   DynamicFormService,
 } from 'src/app/ts-dynamic-form/services/form-service';
-import { Dialogue_ProductService } from '../dialogue-product.service';
 import { StateService } from 'src/app/ts-dynamic-form/services/state-service';
+import { next, save } from '../dialogue-product.service';
 
 export function getPrevious(formObj: DynamicFormLayout) {
   return (
@@ -18,13 +18,7 @@ export function getPrevious(formObj: DynamicFormLayout) {
     //
     // here is the logic to implement
     // call the form service appropriate method
-    const _service = dialogueService as Dialogue_ProductService;
-    _service.next(
-      formGroupValue,
-      'dialogue-product/form-b',
-      stateService,
-      dynamicFormService
-    );
+    next(formGroupValue, 'form-b', stateService, dynamicFormService);
   };
 }
 
@@ -39,7 +33,6 @@ export function getSave(formObj: DynamicFormLayout) {
     //
     // here is the logic to implement
     // call the form service appropriate method
-    const _service = dialogueService as Dialogue_ProductService;
-    _service.save(formGroupValue, 'form-a', stateService, dynamicFormService);
+    save(formGroupValue, 'form-a', stateService, dynamicFormService);
   };
 }
