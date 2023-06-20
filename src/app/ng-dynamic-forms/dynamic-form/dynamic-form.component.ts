@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 import { toFormGroup } from './form-group-questions-convertions';
@@ -12,15 +12,18 @@ import { Action } from 'src/app/ts-dynamic-form/actions/action';
 import { Section } from 'src/app/ts-dynamic-form/section';
 
 import { NgStateService } from '../ng-state.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-dynamic-form',
   templateUrl: './dynamic-form.component.html',
   styleUrls: ['./dynamic-form.component.css'],
 })
-export class DynamicFormComponent implements OnInit {
+export class DynamicFormComponent implements OnInit, OnDestroy {
   @Input() formObj!: DynamicFormLayout;
   @Input() title!: string;
+
+  subscriptions: Subscription[] = [];
 
   form!: FormGroup;
   elements: DynamicFormElement[] = [];
@@ -32,9 +35,14 @@ export class DynamicFormComponent implements OnInit {
 
     this.elements = this.formObj.getElementsOrdered();
 
-    this.stateService.message$.subscribe((message) => {
+    let sub: Subscription;
+    sub = this.stateService.message$.subscribe((message) => {
       console.log(`>>>>>>>>>>>>>> `, message);
     });
+    this.subscriptions.push(sub);
+  }
+  ngOnDestroy(): void {
+    this.subscriptions.forEach((sub) => sub.unsubscribe());
   }
 
   asSection(element: DynamicFormElement) {

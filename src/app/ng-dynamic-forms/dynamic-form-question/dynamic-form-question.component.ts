@@ -1,28 +1,30 @@
-import { Component, Inject, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { merge, tap } from 'rxjs';
+import { Subscription, tap } from 'rxjs';
 
+import { NgStateService } from '../ng-state.service';
 import { QuestionBase } from '../../ts-dynamic-form/questions/question-base';
-
 import { DropdownQuestion } from 'src/app/ts-dynamic-form/questions/question-dropdown';
 import { TextboxQuestion } from 'src/app/ts-dynamic-form/questions/question-textbox';
-import { NgStateService } from '../ng-state.service';
 
 @Component({
   selector: 'app-question',
   templateUrl: './dynamic-form-question.component.html',
   styleUrls: ['./dynamic-form-question.component.css'],
 })
-export class DynamicFormQuestionComponent implements OnInit {
+export class DynamicFormQuestionComponent implements OnInit, OnDestroy {
   @Input() question!: QuestionBase<any>;
   @Input() form!: FormGroup;
+
+  subscriptions: Subscription[] = [];
 
   constructor(private stateService: NgStateService, private router: Router) {}
 
   ngOnInit(): void {
-    this.stateService.formLayout$
+    let sub: Subscription;
+    sub = this.stateService.formLayout$
       .pipe(
         tap((formLayout) => {
           const control = this.form.controls[this.question.key];
@@ -35,8 +37,9 @@ export class DynamicFormQuestionComponent implements OnInit {
         })
       )
       .subscribe();
+    this.subscriptions.push(sub);
 
-    this.stateService.formValue$
+    sub = this.stateService.formValue$
       .pipe(
         tap((formValue) => {
           const val = formValue[this.question.key];
@@ -49,14 +52,25 @@ export class DynamicFormQuestionComponent implements OnInit {
         })
       )
       .subscribe();
+    this.subscriptions.push(sub);
 
-    this.stateService.nextRoute$
+    sub = this.stateService.nextRoute$
       .pipe(
         tap((nextRoute) => {
           this.router.navigate([nextRoute]);
         })
       )
       .subscribe();
+    this.subscriptions.push(sub);
+  }
+
+  ngOnDestroy(): void {
+    console.log(
+      '>>>>>>>>>>>>>>> Question destroyed',
+      this.question.key,
+      this.subscriptions
+    );
+    this.subscriptions.forEach((sub) => sub.unsubscribe());
   }
 
   get isValid() {
