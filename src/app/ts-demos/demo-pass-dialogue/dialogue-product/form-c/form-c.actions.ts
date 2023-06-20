@@ -1,9 +1,5 @@
-import { of, tap } from 'rxjs';
 import { DynamicFormLayout } from 'src/app/ts-dynamic-form/form';
-import {
-  DialogueFormService,
-  DynamicFormService,
-} from 'src/app/ts-dynamic-form/services/form-service';
+import { DynamicFormService } from 'src/app/ts-dynamic-form/services/form-service';
 import { StateService } from 'src/app/ts-dynamic-form/services/state-service';
 import { next, save } from '../dialogue-product.service';
 
@@ -12,7 +8,6 @@ export function getPrevious(formObj: DynamicFormLayout) {
     formGroupValue: any,
     stateService: StateService,
     dynamicFormService: DynamicFormService,
-    dialogueService: DialogueFormService,
     event: any
   ) => {
     //
@@ -27,7 +22,6 @@ export function getSave(formObj: DynamicFormLayout) {
     formGroupValue: any,
     stateService: StateService,
     dynamicFormService: DynamicFormService,
-    dialogueService: DialogueFormService,
     event: any
   ) => {
     //

@@ -1,8 +1,5 @@
 import { DynamicFormLayout } from 'src/app/ts-dynamic-form/form';
-import {
-  DialogueFormService,
-  DynamicFormService,
-} from 'src/app/ts-dynamic-form/services/form-service';
+import { DynamicFormService } from 'src/app/ts-dynamic-form/services/form-service';
 import { StateService } from 'src/app/ts-dynamic-form/services/state-service';
 import { next, transitFrom_B_to_C } from '../dialogue-product.service';
 
@@ -11,7 +8,6 @@ export function getNext(formObj: DynamicFormLayout) {
     formGroupValue: any,
     stateService: StateService,
     dynamicFormService: DynamicFormService,
-    dialogueService: DialogueFormService,
     event: any
   ) => {
     //
@@ -26,7 +22,6 @@ export function getPrevious(formObj: DynamicFormLayout) {
     formGroupValue: any,
     stateService: StateService,
     dynamicFormService: DynamicFormService,
-    dialogueService: DialogueFormService,
     event: any
   ) => {
     //
@@ -41,7 +36,6 @@ export function getTransitFrom_B_to_C(formObj: DynamicFormLayout) {
     formGroupValue: any,
     stateService: StateService,
     dynamicFormService: DynamicFormService,
-    dialogueService: DialogueFormService,
     event: any
   ) => {
     //

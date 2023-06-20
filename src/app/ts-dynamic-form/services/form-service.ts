@@ -9,5 +9,3 @@ export class DynamicFormService {
     this._formLayout$.next(layout);
   }
 }
-
-export interface DialogueFormService {}

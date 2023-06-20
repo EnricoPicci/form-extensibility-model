@@ -10,10 +10,7 @@ import {
 import { QuestionBase } from 'src/app/ts-dynamic-form/questions/question-base';
 import { Action } from 'src/app/ts-dynamic-form/actions/action';
 import { Section } from 'src/app/ts-dynamic-form/section';
-import {
-  DynamicFormService,
-  DialogueFormService,
-} from 'src/app/ts-dynamic-form/services/form-service';
+import { DynamicFormService } from 'src/app/ts-dynamic-form/services/form-service';
 import { NgStateService } from '../ng-state.service';
 
 @Component({
@@ -24,7 +21,6 @@ import { NgStateService } from '../ng-state.service';
 export class DynamicFormComponent implements OnInit {
   @Input() formObj!: DynamicFormLayout;
   @Input() title!: string;
-  @Input() dialogueFormService!: DialogueFormService;
 
   form!: FormGroup;
   elements: DynamicFormElement[] = [];

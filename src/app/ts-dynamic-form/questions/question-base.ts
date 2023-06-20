@@ -1,7 +1,4 @@
-import {
-  DialogueFormService,
-  DynamicFormService,
-} from 'src/app/ts-dynamic-form/services/form-service';
+import { DynamicFormService } from 'src/app/ts-dynamic-form/services/form-service';
 
 import { DynamicFormElement, DynamicFormElementType } from '../form';
 import { StateService } from '../services/state-service';
@@ -19,7 +16,6 @@ export type QuestionBaseOptions<T> = {
     formGroupValue: any,
     stateService: StateService,
     dynamicFormService: DynamicFormService,
-    dialogueFormService: DialogueFormService,
     event?: any
   ) => void;
 };
@@ -36,7 +32,6 @@ export abstract class QuestionBase<T> extends DynamicFormElement {
     formGroupValue: any,
     stateService: StateService,
     dynamicFormService: DynamicFormService,
-    dialogueFormService: DialogueFormService,
     event?: any
   ) => void;
 

@@ -4,10 +4,7 @@ import { Action } from 'src/app/ts-dynamic-form/actions/action';
 import { SectionElement } from 'src/app/ts-dynamic-form/form-element';
 import { QuestionBase } from 'src/app/ts-dynamic-form/questions/question-base';
 import { Section } from 'src/app/ts-dynamic-form/section';
-import {
-  DynamicFormService,
-  DialogueFormService,
-} from 'src/app/ts-dynamic-form/services/form-service';
+import { DynamicFormService } from 'src/app/ts-dynamic-form/services/form-service';
 import { NgStateService } from '../ng-state.service';
 
 @Component({
@@ -18,7 +15,6 @@ import { NgStateService } from '../ng-state.service';
 export class DynamicFormSectionComponent implements OnInit {
   @Input() section!: Section;
   @Input() form!: FormGroup;
-  @Input() dialogueFormService!: DialogueFormService;
 
   constructor(
     public stateService: NgStateService,

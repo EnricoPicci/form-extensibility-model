@@ -6,7 +6,6 @@
         *ngSwitchCase="'Question'"
         [question]="asQuestion(element)"
         [form]="form"
-        [dialogueFormService]="dialogueFormService"
       ></app-question>
 
       <button
@@ -17,7 +16,6 @@
             form.value,
             stateService,
             dynamicFormService,
-            dialogueFormService,
             $event
           )
         "

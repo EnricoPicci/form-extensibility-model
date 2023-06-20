@@ -7,14 +7,12 @@
           *ngSwitchCase="'Section'"
           [section]="asSection(element)"
           [form]="form"
-          [dialogueFormService]="dialogueFormService"
         ></app-dynamic-form-section>
 
         <app-question
           *ngSwitchCase="'Question'"
           [question]="asQuestion(element)"
           [form]="form"
-          [dialogueFormService]="dialogueFormService"
         ></app-question>
 
         <button
@@ -25,7 +23,6 @@
               form.value,
               stateService,
               dynamicFormService,
-              dialogueFormService,
               $event
             )
           "

@@ -1,8 +1,5 @@
 import { DynamicFormLayout } from 'src/app/ts-dynamic-form/form';
-import {
-  DialogueFormService,
-  DynamicFormService,
-} from 'src/app/ts-dynamic-form/services/form-service';
+import { DynamicFormService } from 'src/app/ts-dynamic-form/services/form-service';
 import { StateService } from 'src/app/ts-dynamic-form/services/state-service';
 import { transitFrom_B_to_C_Spain } from '../dialogue-product-spain.service';
 
@@ -13,7 +10,6 @@ export function getTransitFrom_B_to_C_Spain(formObj: DynamicFormLayout) {
     formGroupValue: any,
     stateService: StateService,
     dynamicFormService: DynamicFormService,
-    dialogueService: DialogueFormService,
     event: any
   ) => {
     //
