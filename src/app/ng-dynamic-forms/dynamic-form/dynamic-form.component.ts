@@ -1,8 +1,11 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
+import { Subscription } from 'rxjs';
+
 import { toFormGroup } from './form-group-questions-convertions';
 
+import { FormStateService } from 'src/app/ts-dynamic-form/services/form-state-service';
 import {
   DynamicFormLayout,
   DynamicFormElement,
@@ -10,9 +13,6 @@ import {
 import { QuestionBase } from 'src/app/ts-dynamic-form/questions/question-base';
 import { Action } from 'src/app/ts-dynamic-form/actions/action';
 import { Section } from 'src/app/ts-dynamic-form/section';
-
-import { NgStateService } from '../ng-state.service';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-dynamic-form',
@@ -28,7 +28,7 @@ export class DynamicFormComponent implements OnInit, OnDestroy {
   form!: FormGroup;
   elements: DynamicFormElement[] = [];
 
-  constructor(public stateService: NgStateService) {}
+  constructor(public stateService: FormStateService) {}
 
   ngOnInit() {
     this.form = toFormGroup(this.formObj);

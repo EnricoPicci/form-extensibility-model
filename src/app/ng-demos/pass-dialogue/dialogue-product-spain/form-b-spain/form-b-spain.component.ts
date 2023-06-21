@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgStateService } from 'src/app/ng-dynamic-forms/ng-state.service';
+import { FormStateService } from 'src/app/ts-dynamic-form/services/form-state-service';
 import { getFormXSpainLayout as getFormBSpainLayout } from 'src/app/ts-demos/demo-pass-dialogue/dialogue-product-spain/form-b/form-b.form';
 import { DynamicFormLayout } from 'src/app/ts-dynamic-form/form';
 
@@ -14,7 +14,7 @@ export class FormBSpainComponent {
     return `${this.stateService.dialogueName} - Form B`;
   }
 
-  constructor(private stateService: NgStateService) {}
+  constructor(private stateService: FormStateService) {}
 
   ngOnInit(): void {
     this.form = getFormBSpainLayout();
