@@ -1,5 +1,5 @@
 import { FormStateService } from 'src/app/ts-dynamic-form/services/form-state-service';
-import { validateTransitionFrom_B_to_C } from '../dialogue-product/dialogue-product.service';
+import { validateTransitionFrom_B_to_C } from '../dialogue-product/dialogue-product.functions';
 
 export function transitFrom_B_to_C_Spain(
   formGroupValue: any,

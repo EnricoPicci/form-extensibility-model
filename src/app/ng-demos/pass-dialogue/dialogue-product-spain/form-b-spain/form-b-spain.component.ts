@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormStateService } from 'src/app/ts-dynamic-form/services/form-state-service';
-import { getFormXSpainLayout as getFormBSpainLayout } from 'src/app/ts-demos/demo-pass-dialogue/dialogue-product-spain/form-b/form-b.form';
+import { getFormBSpainLayout as getFormBSpainLayout } from 'src/app/ts-demos/demo-pass-dialogue/dialogue-product-spain/form-b/form-b.form';
 import { DynamicFormLayout } from 'src/app/ts-dynamic-form/form';
 
 @Component({

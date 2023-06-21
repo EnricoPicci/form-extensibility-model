@@ -1,7 +1,7 @@
 import { DynamicFormLayout } from 'src/app/ts-dynamic-form/form';
 
 import { FormStateService } from 'src/app/ts-dynamic-form/services/form-state-service';
-import { next, save } from '../dialogue-product.service';
+import { next, save } from '../dialogue-product.functions';
 
 export function getPrevious(formObj: DynamicFormLayout) {
   return (formGroupValue: any, stateService: FormStateService, event: any) => {

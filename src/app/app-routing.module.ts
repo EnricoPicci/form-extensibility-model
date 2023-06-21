@@ -42,6 +42,7 @@ const routes: Routes = [
         './ng-demos/pass-dialogue/dialogue-product-spain/dialogue-product-spain.module'
       ).then((m) => m.DialogueProductSpainModule),
   },
+  { path: 'dialogue-product-generali', loadChildren: () => import('./ng-demos/pass-dialogue/dialogue-product-generali/dialogue-product-generali.module').then(m => m.DialogueProductGeneraliModule) },
 ];
 
 @NgModule({

@@ -2,8 +2,9 @@ import { TextboxQuestion } from 'src/app/ts-dynamic-form/questions/question-text
 import { get_Form_B_Layout } from '../../dialogue-product/form-b/form-b.form';
 import { getTransitFrom_B_to_C_Spain } from './form-b.actions';
 
-export function getFormXSpainLayout() {
+export function getFormBSpainLayout() {
   // retrieve the layout for Form B at the Product level
+  // this is the layout that we want to customize
   const formLayout = get_Form_B_Layout();
 
   // create the new question
