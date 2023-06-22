@@ -2,10 +2,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { DynamicFormLayout } from 'src/app/ts-dynamic-form/form';
 
-export function toFormGroup(formObj: DynamicFormLayout) {
+export function toFormGroup(formLayout: DynamicFormLayout) {
   const group: any = {};
 
-  const questions = formObj.getAllQuestions();
+  const questions = formLayout.getAllQuestions();
   questions.forEach((question) => {
     let val = question.value;
     if (val === undefined || val === null) {

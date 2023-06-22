@@ -4,18 +4,18 @@ import { TextboxQuestion } from 'src/app/ts-dynamic-form/questions/question-text
 import { getEnableDriverName } from './demo-dynamic-validation-call.actions';
 
 export function getDynamicValidationForm() {
-  const formObj = new DynamicFormLayout({
+  const formLayout = new DynamicFormLayout({
     title: 'Dynamic Validation Call',
   });
 
-  formObj.elements = [
+  formLayout.elements = [
     new TextboxQuestion({
       key: 'plate',
       label: 'Plate',
       value: '',
       required: false,
       order: 1,
-      onBlurHandler: getEnableDriverName(formObj),
+      onBlurHandler: getEnableDriverName(formLayout),
     }),
     new TextboxQuestion({
       key: 'driverName',
@@ -27,5 +27,5 @@ export function getDynamicValidationForm() {
     }),
   ];
 
-  return formObj;
+  return formLayout;
 }

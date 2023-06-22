@@ -21,7 +21,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./dynamic-form.component.css'],
 })
 export class DynamicFormComponent implements OnInit, OnDestroy {
-  @Input() formObj!: DynamicFormLayout;
+  @Input() formLayout!: DynamicFormLayout;
   @Input() title!: string;
 
   subscriptions: Subscription[] = [];
@@ -32,9 +32,9 @@ export class DynamicFormComponent implements OnInit, OnDestroy {
   constructor(public stateService: DialogueState, private router: Router) {}
 
   ngOnInit() {
-    this.form = toFormGroup(this.formObj);
+    this.form = toFormGroup(this.formLayout);
 
-    this.elements = this.formObj.getElementsOrdered();
+    this.elements = this.formLayout.getElementsOrdered();
 
     let sub: Subscription;
     sub = this.stateService.message$.subscribe((message) => {

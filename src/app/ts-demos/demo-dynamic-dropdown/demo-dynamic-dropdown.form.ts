@@ -4,11 +4,11 @@ import { DropdownQuestion } from 'src/app/ts-dynamic-form/questions/question-dro
 import { getFillCity } from './demo-dynamic-dropdown.actions';
 
 export function getDynamicDropdownForm() {
-  const formObj = new DynamicFormLayout({
+  const formLayout = new DynamicFormLayout({
     title: 'Dynamic Dropdown',
   });
 
-  formObj.elements = [
+  formLayout.elements = [
     new DropdownQuestion({
       key: 'country',
       label: 'Country',
@@ -17,7 +17,7 @@ export function getDynamicDropdownForm() {
         { key: 'france', value: 'France' },
       ],
       order: 1,
-      onChangeHandler: getFillCity(formObj),
+      onChangeHandler: getFillCity(formLayout),
     }),
     new DropdownQuestion({
       key: 'city',
@@ -27,5 +27,5 @@ export function getDynamicDropdownForm() {
     }),
   ];
 
-  return formObj;
+  return formLayout;
 }

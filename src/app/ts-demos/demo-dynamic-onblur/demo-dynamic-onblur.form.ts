@@ -4,18 +4,18 @@ import { TextboxQuestion } from 'src/app/ts-dynamic-form/questions/question-text
 import { getEnablePlate } from './demo-dynamic-onblur.actions';
 
 export function getDynamicOnblurForm() {
-  const formObj = new DynamicFormLayout({
+  const formLayout = new DynamicFormLayout({
     title: 'Dynamic Onblur Form',
   });
 
-  formObj.elements = [
+  formLayout.elements = [
     new TextboxQuestion({
       key: 'carBrand',
       label: 'Car Brand',
       value: '',
       required: false,
       order: 1,
-      onBlurHandler: getEnablePlate(formObj),
+      onBlurHandler: getEnablePlate(formLayout),
     }),
     new TextboxQuestion({
       key: 'plate',
@@ -27,5 +27,5 @@ export function getDynamicOnblurForm() {
     }),
   ];
 
-  return formObj;
+  return formLayout;
 }

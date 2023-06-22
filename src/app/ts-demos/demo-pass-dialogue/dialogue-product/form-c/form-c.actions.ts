@@ -3,7 +3,7 @@ import { DynamicFormLayout } from 'src/app/ts-dynamic-form/form';
 import { DialogueState } from 'src/app/ts-dynamic-form/services/dialogue-state';
 import { next, save } from '../dialogue-product.functions';
 
-export function getPrevious(formObj: DynamicFormLayout) {
+export function getPrevious(formLayout: DynamicFormLayout) {
   return (formGroupValue: any, stateService: DialogueState, event: any) => {
     //
     // here is the logic to implement
@@ -12,7 +12,7 @@ export function getPrevious(formObj: DynamicFormLayout) {
   };
 }
 
-export function getSave(formObj: DynamicFormLayout) {
+export function getSave(formLayout: DynamicFormLayout) {
   return (formGroupValue: any, stateService: DialogueState, event: any) => {
     //
     // here is the logic to implement

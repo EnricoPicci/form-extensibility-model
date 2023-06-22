@@ -5,17 +5,17 @@ import { TextboxQuestion } from 'src/app/ts-dynamic-form/questions/question-text
 import { CheckboxQuestion } from 'src/app/ts-dynamic-form/questions/question-checkbox';
 
 export function getDynamicCheckboxForm() {
-  const formObj = new DynamicFormLayout({
+  const formLayout = new DynamicFormLayout({
     title: 'Dynamic Checkbox',
   });
 
-  formObj.elements = [
+  formLayout.elements = [
     new CheckboxQuestion({
       key: 'business',
       label: 'Business',
       value: false,
       order: 1,
-      onChangeHandler: getEnableVat(formObj),
+      onChangeHandler: getEnableVat(formLayout),
     }),
     new TextboxQuestion({
       key: 'vat',
@@ -27,5 +27,5 @@ export function getDynamicCheckboxForm() {
     }),
   ];
 
-  return formObj;
+  return formLayout;
 }

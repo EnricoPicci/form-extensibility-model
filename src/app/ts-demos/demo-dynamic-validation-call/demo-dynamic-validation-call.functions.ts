@@ -6,23 +6,23 @@ import { DialogueState } from 'src/app/ts-dynamic-form/services/dialogue-state';
 
 export function enableDriverName(
   formGroupValue: any,
-  formObj: DynamicFormLayout,
+  formLayout: DynamicFormLayout,
   stateService: DialogueState,
   event?: any
 ) {
   const plate = formGroupValue.plate;
 
   // here we simulate to go to the server to check if the plate is valid
-  // and if it is valid we enable the driver name question, which is something we can do via the formObj
+  // and if it is valid we enable the driver name question, which is something we can do via the formLayout
   getRemoteServer()
     .validatePlate(plate)
     .pipe(
       tap((enabled) => {
         const plate = formGroupValue.plate;
-        const drivernameQuestion = formObj.getUniqueQuestion('driverName');
+        const drivernameQuestion = formLayout.getUniqueQuestion('driverName');
 
         drivernameQuestion.enabled = enabled;
-        stateService.updateFormLayout(formObj);
+        stateService.updateFormLayout(formLayout);
 
         // reset the value of driver name if driver name is disabled
         formGroupValue.driverName = drivernameQuestion.enabled

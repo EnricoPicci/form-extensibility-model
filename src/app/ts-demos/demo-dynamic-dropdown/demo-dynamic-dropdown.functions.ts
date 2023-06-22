@@ -5,11 +5,11 @@ import { DialogueState } from 'src/app/ts-dynamic-form/services/dialogue-state';
 
 export function fillCity(
   formGroupValue: any,
-  formObj: DynamicFormLayout,
+  formLayout: DynamicFormLayout,
   stateService: DialogueState
 ) {
   const country = formGroupValue.country;
-  const city = formObj.getUniqueQuestion('city') as DropdownQuestion<string>;
+  const city = formLayout.getUniqueQuestion('city') as DropdownQuestion<string>;
 
   formGroupValue.city = null;
   // here the value of the object represented by the form changes and therefore suche value neeeds to be
@@ -28,5 +28,5 @@ export function fillCity(
       { key: 'lyon', value: 'Lyon' },
     ];
   }
-  stateService.updateFormLayout(formObj);
+  stateService.updateFormLayout(formLayout);
 }

@@ -3,7 +3,7 @@ import { DialogueState } from 'src/app/ts-dynamic-form/services/dialogue-state';
 
 import { toFormC } from '../dialogue-product-generali.functions';
 
-export function getToFormC(formObj: DynamicFormLayout) {
+export function getToFormC(formLayout: DynamicFormLayout) {
   return (formGroupValue: any, stateService: DialogueState, event: any) => {
     //
     // here is the logic to implement
