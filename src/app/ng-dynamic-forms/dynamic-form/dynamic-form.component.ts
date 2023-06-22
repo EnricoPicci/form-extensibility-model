@@ -1,7 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
-import { Subscription } from 'rxjs';
+import { Subscription, tap } from 'rxjs';
 
 import { toFormGroup } from './form-group-questions-convertions';
 
@@ -13,6 +13,7 @@ import {
 import { QuestionBase } from 'src/app/ts-dynamic-form/questions/question-base';
 import { Action } from 'src/app/ts-dynamic-form/actions/action';
 import { Section } from 'src/app/ts-dynamic-form/section';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dynamic-form',
@@ -28,7 +29,7 @@ export class DynamicFormComponent implements OnInit, OnDestroy {
   form!: FormGroup;
   elements: DynamicFormElement[] = [];
 
-  constructor(public stateService: DialogueState) {}
+  constructor(public stateService: DialogueState, private router: Router) {}
 
   ngOnInit() {
     this.form = toFormGroup(this.formObj);
@@ -39,6 +40,16 @@ export class DynamicFormComponent implements OnInit, OnDestroy {
     sub = this.stateService.message$.subscribe((message) => {
       console.log(`>>>>>>>>>>>>>> `, message);
     });
+    this.subscriptions.push(sub);
+
+    sub = this.stateService.nextRoute$
+      .pipe(
+        tap((nextRoute) => {
+          console.log('>>>>>>>>>>>>>>>>>>> nextRoute$', nextRoute);
+          this.router.navigate([nextRoute]);
+        })
+      )
+      .subscribe();
     this.subscriptions.push(sub);
   }
   ngOnDestroy(): void {

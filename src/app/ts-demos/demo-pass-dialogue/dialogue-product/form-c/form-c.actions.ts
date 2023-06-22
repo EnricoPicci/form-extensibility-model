@@ -17,6 +17,6 @@ export function getSave(formObj: DynamicFormLayout) {
     //
     // here is the logic to implement
     // call the form service appropriate method
-    save(formGroupValue, 'form-a', stateService);
+    save(formGroupValue, 'form-d', stateService);
   };
 }

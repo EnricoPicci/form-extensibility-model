@@ -1,6 +1,5 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
 
 import { Subscription, tap } from 'rxjs';
 
@@ -20,7 +19,7 @@ export class DynamicFormQuestionComponent implements OnInit, OnDestroy {
 
   subscriptions: Subscription[] = [];
 
-  constructor(private stateService: DialogueState, private router: Router) {}
+  constructor(private stateService: DialogueState) {}
 
   ngOnInit(): void {
     let sub: Subscription;
@@ -49,15 +48,6 @@ export class DynamicFormQuestionComponent implements OnInit, OnDestroy {
           const v = val ?? '';
           const control = this.form.controls[this.question.key];
           control.setValue(v);
-        })
-      )
-      .subscribe();
-    this.subscriptions.push(sub);
-
-    sub = this.stateService.nextRoute$
-      .pipe(
-        tap((nextRoute) => {
-          this.router.navigate([nextRoute]);
         })
       )
       .subscribe();

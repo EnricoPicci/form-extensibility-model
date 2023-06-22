@@ -7,6 +7,7 @@ import { FormBComponent } from './form-b/form-b.component';
 import { FormCComponent } from './form-c/form-c.component';
 import { NgDynamicFormsModule } from 'src/app/ng-dynamic-forms/ng-dynamic-forms.module';
 import { ProductDialogueComponent } from './dialogue-product.component';
+import { FormDComponent } from './form-d/form-d.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { ProductDialogueComponent } from './dialogue-product.component';
     FormAComponent,
     FormBComponent,
     FormCComponent,
+    FormDComponent,
   ],
   imports: [CommonModule, DialogueProductRoutingModule, NgDynamicFormsModule],
 })

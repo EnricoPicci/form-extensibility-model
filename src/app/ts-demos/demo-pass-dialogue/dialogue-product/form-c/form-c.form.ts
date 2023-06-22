@@ -6,7 +6,7 @@ import { getPrevious, getSave } from './form-c.actions';
 
 export function get_Form_C_Layout() {
   const formLayout = new DynamicFormLayout({
-    title: 'Product Dialogue Form B',
+    title: 'Product Dialogue Form C',
   });
 
   formLayout.elements = [
