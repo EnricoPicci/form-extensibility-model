@@ -2,12 +2,12 @@ import { of, tap } from 'rxjs';
 import { DynamicFormLayout } from 'src/app/ts-dynamic-form/form';
 
 import { getRemoteServer } from './remote-server/remote-server';
-import { FormStateService } from 'src/app/ts-dynamic-form/services/form-state-service';
+import { DialogueState } from 'src/app/ts-dynamic-form/services/dialogue-state';
 
 export function enableDriverName(
   formGroupValue: any,
   formObj: DynamicFormLayout,
-  stateService: FormStateService,
+  stateService: DialogueState,
   event?: any
 ) {
   const plate = formGroupValue.plate;

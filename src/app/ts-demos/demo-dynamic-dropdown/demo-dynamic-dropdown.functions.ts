@@ -1,12 +1,12 @@
 import { DynamicFormLayout } from 'src/app/ts-dynamic-form/form';
 import { DropdownQuestion } from 'src/app/ts-dynamic-form/questions/question-dropdown';
 
-import { FormStateService } from 'src/app/ts-dynamic-form/services/form-state-service';
+import { DialogueState } from 'src/app/ts-dynamic-form/services/dialogue-state';
 
 export function fillCity(
   formGroupValue: any,
   formObj: DynamicFormLayout,
-  stateService: FormStateService
+  stateService: DialogueState
 ) {
   const country = formGroupValue.country;
   const city = formObj.getUniqueQuestion('city') as DropdownQuestion<string>;

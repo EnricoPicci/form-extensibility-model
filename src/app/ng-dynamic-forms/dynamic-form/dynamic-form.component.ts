@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs';
 
 import { toFormGroup } from './form-group-questions-convertions';
 
-import { FormStateService } from 'src/app/ts-dynamic-form/services/form-state-service';
+import { DialogueState } from 'src/app/ts-dynamic-form/services/dialogue-state';
 import {
   DynamicFormLayout,
   DynamicFormElement,
@@ -28,7 +28,7 @@ export class DynamicFormComponent implements OnInit, OnDestroy {
   form!: FormGroup;
   elements: DynamicFormElement[] = [];
 
-  constructor(public stateService: FormStateService) {}
+  constructor(public stateService: DialogueState) {}
 
   ngOnInit() {
     this.form = toFormGroup(this.formObj);

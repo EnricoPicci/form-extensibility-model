@@ -1,11 +1,11 @@
 import { DynamicFormLayout } from 'src/app/ts-dynamic-form/form';
 
-import { FormStateService } from 'src/app/ts-dynamic-form/services/form-state-service';
+import { DialogueState } from 'src/app/ts-dynamic-form/services/dialogue-state';
 
 export function enableVat(
   formGroupValue: any,
   formObj: DynamicFormLayout,
-  stateService: FormStateService
+  stateService: DialogueState
 ) {
   const isBusiness = formGroupValue.business;
   const vat = formObj.getUniqueQuestion('vat');

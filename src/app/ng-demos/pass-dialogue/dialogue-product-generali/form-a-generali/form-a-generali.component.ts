@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { getFormAGeneraliLayout } from 'src/app/ts-demos/demo-pass-dialogue/dialogue-generali/form-a/form-a.form';
 
 import { DynamicFormLayout } from 'src/app/ts-dynamic-form/form';
-import { FormStateService } from 'src/app/ts-dynamic-form/services/form-state-service';
+import { DialogueState } from 'src/app/ts-dynamic-form/services/dialogue-state';
 
 @Component({
   selector: 'app-form-a-generali',
@@ -16,7 +16,7 @@ export class FormAGeneraliComponent {
     return `${this.stateService.dialogueName} - Form A`;
   }
 
-  constructor(private stateService: FormStateService) {}
+  constructor(private stateService: DialogueState) {}
 
   ngOnInit(): void {
     this.form = getFormAGeneraliLayout();

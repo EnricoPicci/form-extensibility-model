@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { getDynamicValidationForm } from 'src/app/ts-demos/demo-dynamic-validation-call/demo-dynamic-validation-call.form';
 import { DynamicFormLayout } from 'src/app/ts-dynamic-form/form';
-import { FormStateService } from 'src/app/ts-dynamic-form/services/form-state-service';
+import { DialogueState } from 'src/app/ts-dynamic-form/services/dialogue-state';
 
 @Component({
   selector: 'app-validation-call',
   templateUrl: './validation-call.component.html',
   styleUrls: ['./validation-call.component.css'],
-  providers: [FormStateService],
+  providers: [DialogueState],
 })
 export class ValidationCallComponent {
   form!: DynamicFormLayout;

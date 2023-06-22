@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormStateService } from 'src/app/ts-dynamic-form/services/form-state-service';
+import { DialogueState } from 'src/app/ts-dynamic-form/services/dialogue-state';
 import { get_Form_A_Layout } from 'src/app/ts-demos/demo-pass-dialogue/dialogue-product/form-a/form-a.form';
 import { DynamicFormLayout } from 'src/app/ts-dynamic-form/form';
 
@@ -14,7 +14,7 @@ export class FormAComponent {
     return `${this.stateService.dialogueName} - Form A`;
   }
 
-  constructor(private stateService: FormStateService) {}
+  constructor(private stateService: DialogueState) {}
 
   ngOnInit(): void {
     this.form = get_Form_A_Layout();

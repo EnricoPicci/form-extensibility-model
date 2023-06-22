@@ -1,24 +1,20 @@
-import { DynamicFormElement, DynamicFormElementType } from '../form';
-import { FormStateService } from '../services/form-state-service';
+import {
+  BehaviourHandler,
+  DynamicFormElement,
+  DynamicFormElementType,
+} from '../form';
+import { DialogueState } from '../services/dialogue-state';
 
 export class Action extends DynamicFormElement {
   name: string;
-  function: (
-    formGroupValue: any,
-    stateService: FormStateService,
-    event?: any
-  ) => void;
+  function: BehaviourHandler;
   id: string | undefined;
 
   override componentType: DynamicFormElementType = 'Action';
 
   constructor(options: {
     name: string;
-    function: (
-      formGroupValue: any,
-      stateService: FormStateService,
-      event?: any
-    ) => void;
+    function: BehaviourHandler;
     order: number;
     id?: string;
   }) {

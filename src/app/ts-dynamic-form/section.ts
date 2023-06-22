@@ -1,5 +1,5 @@
 import { DynamicFormElement, DynamicFormElementType } from './form';
-import { SectionElement } from './form-element';
+import { SectionElement } from './form';
 
 export class Section extends DynamicFormElement {
   name: string;

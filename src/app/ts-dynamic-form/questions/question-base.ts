@@ -1,5 +1,9 @@
-import { DynamicFormElement, DynamicFormElementType } from '../form';
-import { FormStateService } from '../services/form-state-service';
+import {
+  BehaviourHandler,
+  DynamicFormElement,
+  DynamicFormElementType,
+} from '../form';
+import { DialogueState } from '../services/dialogue-state';
 
 export type QuestionBaseOptions<T> = {
   value?: T;
@@ -10,11 +14,7 @@ export type QuestionBaseOptions<T> = {
   order?: number;
   controlType?: string;
   type?: string;
-  onChangeHandler?: (
-    formGroupValue: any,
-    stateService: FormStateService,
-    event?: any
-  ) => void;
+  onChangeHandler?: BehaviourHandler;
 };
 
 export abstract class QuestionBase<T> extends DynamicFormElement {
@@ -25,11 +25,7 @@ export abstract class QuestionBase<T> extends DynamicFormElement {
   enabled: boolean | null | undefined;
   controlType: string;
   type: string;
-  onChangeHandler?: (
-    formGroupValue: any,
-    stateService: FormStateService,
-    event?: any
-  ) => void;
+  onChangeHandler?: BehaviourHandler;
 
   override componentType: DynamicFormElementType = 'Question';
 

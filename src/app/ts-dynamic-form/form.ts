@@ -1,6 +1,11 @@
 import { Action } from './actions/action';
 import { QuestionBase } from './questions/question-base';
 import { Section } from './section';
+import { DialogueState } from './services/dialogue-state';
+
+// ****************************************************
+// ********  Form Types *******************************
+// ****************************************************
 
 export type DynamicFormElementType = 'Question' | 'Action' | 'Section';
 
@@ -8,6 +13,18 @@ export abstract class DynamicFormElement {
   componentType!: DynamicFormElementType;
   order!: number;
 }
+
+export type SectionElement = QuestionBase<any> | Action;
+
+export type BehaviourHandler = (
+  formGroupValue: any,
+  stateService: DialogueState,
+  event?: any
+) => void;
+
+// ****************************************************
+// ********  Form Layout ******************************
+// ****************************************************
 
 export class DynamicFormLayout {
   title: string;

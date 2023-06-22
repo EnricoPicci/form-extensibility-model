@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { FormStateService } from 'src/app/ts-dynamic-form/services/form-state-service';
+import { DialogueState } from 'src/app/ts-dynamic-form/services/dialogue-state';
 
 @Component({
   selector: 'app-form-c',
   templateUrl: './dialogue-product.component.html',
-  providers: [FormStateService],
+  providers: [DialogueState],
 })
 export class ProductDialogueComponent {
-  constructor(public stateService: FormStateService) {}
+  constructor(public stateService: DialogueState) {}
 
   ngOnInit(): void {
     this.stateService.dialogueName = 'dialogue-product';

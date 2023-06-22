@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 
 import { Subscription, tap } from 'rxjs';
 
-import { FormStateService } from 'src/app/ts-dynamic-form/services/form-state-service';
+import { DialogueState } from 'src/app/ts-dynamic-form/services/dialogue-state';
 import { QuestionBase } from '../../ts-dynamic-form/questions/question-base';
 import { DropdownQuestion } from 'src/app/ts-dynamic-form/questions/question-dropdown';
 import { TextboxQuestion } from 'src/app/ts-dynamic-form/questions/question-textbox';
@@ -20,7 +20,7 @@ export class DynamicFormQuestionComponent implements OnInit, OnDestroy {
 
   subscriptions: Subscription[] = [];
 
-  constructor(private stateService: FormStateService, private router: Router) {}
+  constructor(private stateService: DialogueState, private router: Router) {}
 
   ngOnInit(): void {
     let sub: Subscription;
