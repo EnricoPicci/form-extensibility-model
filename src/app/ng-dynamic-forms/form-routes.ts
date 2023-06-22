@@ -6,7 +6,7 @@ export type FormRoutesDict = { [key: string]: Route };
 export function routesDictFromChildrenRoutes(routes: Route[]): FormRoutesDict {
   const dict: FormRoutesDict = {};
   routes.forEach((route) => {
-    if (route.path) {
+    if (route.path !== undefined) {
       dict[route.path] = route;
     }
   });

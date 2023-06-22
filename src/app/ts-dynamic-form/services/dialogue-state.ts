@@ -17,6 +17,10 @@ export class DialogueState {
   private _message$ = new ReplaySubject<string>(1);
   public message$ = this._message$.asObservable();
 
+  // _routeHistory is an array of strings representing the routes visited
+  // the last element of the array is the current route
+  private _routeHistory: string[] = [];
+
   private _formValue: any;
   public get formValue(): any {
     return this._formValue;
@@ -38,7 +42,19 @@ export class DialogueState {
   }
 
   public nextRoute(route: string) {
+    this._routeHistory.push(route);
     this._nextRoute$.next(this.dialoguePath + route);
+  }
+  public previousRoute() {
+    if (this._routeHistory.length < 2) {
+      this._nextRoute$.next(this.dialoguePath);
+      console.log('>>>>>>>>>>>>>>>> return');
+      return;
+    }
+    this._routeHistory.pop();
+    this._nextRoute$.next(
+      this.dialoguePath + this._routeHistory[this._routeHistory.length - 1]
+    );
   }
 
   public setMessage(message: string) {

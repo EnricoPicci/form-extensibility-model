@@ -4,17 +4,17 @@ import { DropdownQuestion } from 'src/app/ts-dynamic-form/questions/question-dro
 import { DialogueState } from 'src/app/ts-dynamic-form/services/dialogue-state';
 
 export function fillCity(
-  formGroupValue: any,
+  formValue: any,
   formLayout: DynamicFormLayout,
   stateService: DialogueState
 ) {
-  const country = formGroupValue.country;
+  const country = formValue.country;
   const city = formLayout.getUniqueQuestion('city') as DropdownQuestion<string>;
 
-  formGroupValue.city = null;
+  formValue.city = null;
   // here the value of the object represented by the form changes and therefore suche value neeeds to be
   // brodcaseted via the state service
-  stateService.formValue = formGroupValue;
+  stateService.formValue = formValue;
 
   // here we change the options of the city question
   if (country === 'italy') {

@@ -4,7 +4,7 @@ import { FormAComponent } from '../dialogue-product/form-a/form-a.component';
 import { FormCComponent } from '../dialogue-product/form-c/form-c.component';
 import { FormBSpainComponent } from './form-b-spain/form-b-spain.component';
 import { ProductDialogueSpainComponent } from './dialogue-product-spain.component';
-import { dialoguProductFormRoutes } from '../dialogue-product/dialogue-product-routing.module';
+import { dialogueProductFormRoutes } from '../dialogue-product/dialogue-product-routing.module';
 import {
   childrenRoutesFromDict,
   routesDictFromChildrenRoutes,
@@ -12,7 +12,7 @@ import {
 
 // Code to be personalized for each dialogue
 // define the routes for the child components
-const dialoguProductRoutes = dialoguProductFormRoutes;
+const dialoguProductRoutes = dialogueProductFormRoutes;
 const routesDict = routesDictFromChildrenRoutes(dialoguProductRoutes);
 routesDict['form-b'].component = FormBSpainComponent;
 export const dialoguProductSpainFormRoutes = childrenRoutesFromDict(routesDict);

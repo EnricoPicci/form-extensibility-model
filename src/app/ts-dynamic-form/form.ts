@@ -17,7 +17,7 @@ export abstract class DynamicFormElement {
 export type SectionElement = QuestionBase<any> | Action;
 
 export type BehaviourHandler = (
-  formGroupValue: any,
+  formValue: any,
   stateService: DialogueState,
   event?: any
 ) => void;

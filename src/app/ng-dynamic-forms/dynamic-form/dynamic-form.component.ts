@@ -45,7 +45,6 @@ export class DynamicFormComponent implements OnInit, OnDestroy {
     sub = this.stateService.nextRoute$
       .pipe(
         tap((nextRoute) => {
-          console.log('>>>>>>>>>>>>>>>>>>> nextRoute$', nextRoute);
           this.router.navigate([nextRoute]);
         })
       )
