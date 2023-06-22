@@ -14,7 +14,7 @@ export class DialogueState {
   private _nextRoute$ = new Subject<string>();
   public nextRoute$ = this._nextRoute$.asObservable();
 
-  private _message$ = new Subject<string>();
+  private _message$ = new ReplaySubject<string>(1);
   public message$ = this._message$.asObservable();
 
   private _formValue: any;
